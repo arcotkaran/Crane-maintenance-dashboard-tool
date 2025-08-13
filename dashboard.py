@@ -1143,22 +1143,20 @@ elif selected_tab == "⚙️ Admin":
                 del st.session_state[key]
     
     if not st.session_state.admin_logged_in:
-        if not st.session_state.admin_logged_in:
-            st.write("Enter admin credentials to manage the application.")
-            with st.form("admin_login_form"):
-                username = st.text_input("Admin Username") # ADDED
-                password = st.text_input("Admin Password", type="password")
-                submitted = st.form_submit_button("Login")
-                if submitted:
-                    # UPDATED function call
-                    admin_user = auth.verify_user(username, password)
-                    if admin_user:
-                        st.session_state.admin_logged_in = True
-                        st.session_state.admin_user = admin_user
-                        st.session_state.force_data_reload = True
-                        st.rerun()
-                    else:
-                        st.error("Incorrect username or password.")
+        st.write("Enter admin credentials to manage the application.")
+        with st.form("admin_login_form"):
+            username = st.text_input("Admin Username")
+            password = st.text_input("Admin Password", type="password")
+            submitted = st.form_submit_button("Login")
+            if submitted:
+                admin_user = auth.verify_user(username, password)
+                if admin_user:
+                    st.session_state.admin_logged_in = True
+                    st.session_state.admin_user = admin_user
+                    st.session_state.force_data_reload = True
+                    st.rerun()
+                else:
+                    st.error("Incorrect username or password.")
     else:
         st.success(f"Logged in as: **{st.session_state.admin_user}**")
         def logout_callback():
@@ -1188,7 +1186,6 @@ elif selected_tab == "⚙️ Admin":
             conflict_adds = []
             
             for entity_display_name in selected_entities:
-                # Translate display name to internal ID
                 internal_id = DISPLAY_TO_INTERNAL_NAME.get(entity_display_name)
                 
                 if not internal_id:
@@ -1196,8 +1193,6 @@ elif selected_tab == "⚙️ Admin":
                     continue
 
                 entity_type = 'spreader' if 'SP' in internal_id else 'crane'
-                
-                # For spreaders, we need the numeric ID for the database
                 entity_id_for_db = DISPLAY_TO_NUMERIC_ID.get(entity_display_name) if entity_type == 'spreader' else internal_id
 
                 if database.check_for_conflicting_maintenance_windows(entity_id_for_db, from_dt, to_dt):
@@ -1232,7 +1227,7 @@ elif selected_tab == "⚙️ Admin":
             delete_count = 0
             ids_to_delete = []
             for key in log_keys_to_delete:
-                log_id = int(key.split(':')[0]) # Extract ID from the key string
+                log_id = int(key.split(':')[0])
                 if database.delete_service_log(log_id):
                     delete_count += 1
                     ids_to_delete.append(log_id)
@@ -1250,7 +1245,7 @@ elif selected_tab == "⚙️ Admin":
             delete_count = 0
             ids_to_delete = []
             for key in window_keys_to_delete:
-                window_id = int(key.split(':')[0]) # Extract ID from the key string
+                window_id = int(key.split(':')[0])
                 if database.delete_maintenance_window(window_id):
                     delete_count += 1
                     ids_to_delete.append(window_id)
@@ -1491,61 +1486,59 @@ elif selected_tab == "⚙️ Admin":
                     st.multiselect("Select maintenance windows to delete:", options=window_options_keys, key="delete_window_multiselect")
                     st.button("Delete Selected Windows", type="primary", on_click=delete_selected_windows_callback)
 
-            elif admin_mode == "User Management":
-                st.subheader("Manage Users")
+        elif admin_mode == "User Management":
+            st.subheader("Manage Users")
 
-                with st.form("add_user_form", clear_on_submit=True):
-                    st.write("**Create a New User**")
-                    new_username = st.text_input("New Username")
-                    new_password = st.text_input("New Password", type="password")
-                    new_password_confirm = st.text_input("Confirm New Password", type="password")
-                    new_role = st.selectbox("User Role", ["viewer", "admin"])
+            with st.form("add_user_form", clear_on_submit=True):
+                st.write("**Create a New User**")
+                new_username = st.text_input("New Username")
+                new_password = st.text_input("New Password", type="password")
+                new_password_confirm = st.text_input("Confirm New Password", type="password")
+                new_role = st.selectbox("User Role", ["viewer", "admin"])
 
-                    submitted = st.form_submit_button("Create User")
-                    if submitted:
-                        if not all([new_username, new_password, new_password_confirm, new_role]):
-                            st.warning("All fields are required.")
-                        elif new_password != new_password_confirm:
-                            st.error("Passwords do not match.")
+                submitted = st.form_submit_button("Create User")
+                if submitted:
+                    if not all([new_username, new_password, new_password_confirm, new_role]):
+                        st.warning("All fields are required.")
+                    elif new_password != new_password_confirm:
+                        st.error("Passwords do not match.")
+                    else:
+                        hashed_password = bcrypt.hashpw(new_password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+                        result = database.add_user(new_username, hashed_password, new_role)
+                        if result is True:
+                            st.success(f"User '{new_username}' created successfully!")
+                            st.rerun() 
                         else:
-                            hashed_password = bcrypt.hashpw(new_password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
-                            result = database.add_user(new_username, hashed_password, new_role)
-                            if result is True:
-                                st.success(f"User '{new_username}' created successfully!")
-                                st.rerun() # Rerun to show immediate effect
-                            else:
-                                st.error(f"Failed to create user: {result}")
-
-                st.divider()
-                st.write("**Existing Users**")
-                all_users_df = database.get_all_users()
-
-                if not all_users_df.empty:
-                    # Prevent admin from deleting themselves
-                    users_to_display = all_users_df[all_users_df['username'] != st.session_state.admin_user]
-                    st.dataframe(users_to_display[['username', 'role']], use_container_width=True)
-
-                    if not users_to_display.empty:
-                        with st.expander("Delete Users"):
-                            users_to_delete = st.multiselect(
-                                "Select users to delete:",
-                                options=users_to_display['id'],
-                                format_func=lambda user_id: users_to_display[users_to_display['id'] == user_id]['username'].iloc[0]
-                            )
-
-                            if st.button("Delete Selected Users", type="primary"):
-                                if not users_to_delete:
-                                    st.warning("Please select at least one user to delete.")
-                                else:
-
-                                    deleted_count = 0
-                                    for user_id in users_to_delete:
-                                        if database.delete_user(user_id):
-                                            deleted_count += 1
-                                    st.success(f"Successfully deleted {deleted_count} user(s).")
-                                    st.rerun() # Rerun to refresh the user list
-                else:
-                    st.info("No other users found.")
+                            st.error(f"Failed to create user: {result}")
 
             st.divider()
-            st.button("Logout", on_click=logout_callback)        
+            st.write("**Existing Users**")
+            all_users_df = database.get_all_users()
+
+            if not all_users_df.empty:
+                users_to_display = all_users_df[all_users_df['username'] != st.session_state.admin_user]
+                st.dataframe(users_to_display[['username', 'role']], use_container_width=True)
+
+                if not users_to_display.empty:
+                    with st.expander("Delete Users"):
+                        users_to_delete = st.multiselect(
+                            "Select users to delete:",
+                            options=users_to_display['id'],
+                            format_func=lambda user_id: users_to_display[users_to_display['id'] == user_id]['username'].iloc[0]
+                        )
+
+                        if st.button("Delete Selected Users", type="primary"):
+                            if not users_to_delete:
+                                st.warning("Please select at least one user to delete.")
+                            else:
+                                deleted_count = 0
+                                for user_id in users_to_delete:
+                                    if database.delete_user(user_id):
+                                        deleted_count += 1
+                                st.success(f"Successfully deleted {deleted_count} user(s).")
+                                st.rerun() 
+            else:
+                st.info("No other users found.")
+
+        st.divider()
+        st.button("Logout", on_click=logout_callback)
