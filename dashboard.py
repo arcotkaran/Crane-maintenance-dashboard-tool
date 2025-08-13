@@ -10,6 +10,7 @@ import os
 import sqlite3
 from config import Paths, Settings, logger # Import from the new centralized config
 from datetime import datetime, timezone
+import numpy as np
 
 
 # --- Global Configuration ---
@@ -63,133 +64,103 @@ INTERNAL_TO_DISPLAY_NAME, DISPLAY_TO_INTERNAL_NAME, NUMERIC_ID_TO_DISPLAY_NAME, 
 
 
 # --- Custom CSS for a clean look ---
+# --- Custom CSS for Dark Mode Theme ---
 st.markdown("""
 <style>
-/* Main app background */
+/* --- Main App Styling (Dark Mode) --- */
+body {
+    color: #EAEAEA;
+    background-color: #000000;
+}
+.stApp {
+    background-color: #000000;
+}
 .main .block-container {
     padding-top: 2rem;
     padding-bottom: 2rem;
     padding-left: 3rem;
     padding-right: 3rem;
 }
-/* Card-like containers for metrics and other elements */
-[data-testid="stMetric"] {
-    background-color: #FFFFFF;
-    border: 1px solid #E6EAF1;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+h1, h2, h3, h4, h5, h6 {
+    color: #FFFFFF;
 }
-/* Metric label styling */
+/* --- Card-like Containers (Metrics, Health Widgets) --- */
+[data-testid="stMetric"], .spreader-card, .health-widget-container {
+    background-color: #1A1A1A; /* Dark charcoal card background */
+    border: 1px solid #333333;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    color: #EAEAEA;
+}
 [data-testid="stMetricLabel"] {
-    color: #5E6477;
-    font-size: 1rem;
+    color: #888888; /* Softer label color */
+    font-size: 1.1rem;
     font-weight: 500;
 }
-/* Style st.radio to look like tabs */
+/* --- Tabs / Radio Buttons --- */
 div[role="radiogroup"] > label {
     display: inline-block;
-    padding: 8px 12px;
-    margin: 0;
-    border-radius: 8px 8px 0 0;
-    background-color: #F0F2F6;
-    border: 1px solid #D1D5DB;
-    border-bottom: none;
+    padding: 10px 16px;
+    margin: 0 4px; /* Add some space between tabs */
+    border-radius: 8px;
+    background-color: #1A1A1A;
+    border: 1px solid #333333;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 div[role="radiogroup"] > label:hover {
-    background-color: #E5E7EB;
+    background-color: #2a2a2a;
+    box-shadow: 0 0 10px #00AFFF; /* Vibrant blue glow on hover */
 }
-/* Style for the selected "tab" */
 div[role="radiogroup"] > label[data-baseweb="radio"]:has(input:checked) {
-    background-color: #FFFFFF;
-    color: #1F2937;
-    border-top: 2px solid #3B82F6;
-    border-left: 1px solid #D1D5DB;
-    border-right: 1px solid #D1D5DB;
+    background-color: #00AFFF; /* Vibrant blue for selected tab */
+    color: #000000;
+    font-weight: bold;
+    border: 1px solid #00AFFF;
 }
-/* Spreader Card Styles */
-.spreader-card {
-    position: relative;
-    border: 1px solid #E6EAF1;
-    border-radius: 10px;
-    padding: 15px;
-    background-color: #FFFFFF;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.3s ease-in-out;
-}
-.spreader-card:hover {
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
-}
-.spreader-card .hover-details {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 10px;
-    background-color: #333;
-    color: white;
-    border-radius: 0 0 10px 10px;
-    z-index: 10;
-    font-size: 0.9rem;
-}
-.spreader-card:hover .hover-details {
-    display: block;
-}
-.conflicted-card {
-    border: 2px solid #D32F2F !important; /* Prominent red border for conflicts */
-}
-
-/* Fleet Health Widget Styles */
+/* --- Health Widget --- */
 .health-widget-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 20px;
-    border: 1px solid #E6EAF1;
-    border-radius: 10px;
-    background-color: #FFFFFF;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
     height: 100%;
-    min-height: 220px; /* Ensure consistent height */
+    min-height: 250px;
 }
-
 .rings-container {
     position: relative;
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
-
 .health-ring {
     border-radius: 50%;
     position: absolute;
     display: grid;
     place-items: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Add a subtle shadow */
 }
-
 .outer-ring {
-    width: 130px;
-    height: 130px;
-    padding: 12px; /* Creates the thickness of the ring */
-    background-clip: content-box; /* The background will only be visible in the padding area */
-}
-
-.inner-ring {
-    width: 86px; /* Width of outer ring - 2*padding */
-    height: 86px; /* Height of outer ring - 2*padding */
-    padding: 12px;
+    width: 150px;
+    height: 150px;
+    padding: 15px; /* Creates the thickness of the ring */
     background-clip: content-box;
-    background-color: #FFFFFF; /* Center should be white */
+}
+.inner-ring {
+    width: 100px; /* Outer width - 2*padding */
+    height: 100px;
+    padding: 15px;
+    background-clip: content-box;
+    background-color: #1A1A1A; /* Center matches card background */
+}
+.health-status {
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -758,100 +729,120 @@ selected_tab = st.radio(
 if selected_tab == "❤️ Fleet Health":
     st.header("❤️ Fleet Health at a Glance")
 
-    def get_ring_style(task_data, default_color='#E0E0E0'):
-        """Calculates the style for a single health ring."""
-        if task_data is None:
-            return f"background: {default_color};", "N/A"
+    def get_cumulative_health_style(tasks_df):
+        """
+        Calculates cumulative health and style for a group of tasks (Service or Inspection).
+        Returns a CSS style string, a health score (0-1), and a status color.
+        """
+        if tasks_df.empty or tasks_df['service_interval_days'].sum() == 0:
+            return "background: #333333;", 0, "#888888" # Default grey for no data
 
-        days_remaining = task_data['days_remaining']
+        # Calculate individual health scores (0 to 1 scale)
+        # We clip to ensure health doesn't go below 0 or above 1.
+        tasks_df['health_score'] = np.clip(
+            tasks_df['days_remaining'] / tasks_df['service_interval_days'], 0, 1
+        )
         
-        # Determine color
-        if days_remaining <= 0:
-            color = "#E53935" # Red
-        elif days_remaining <= 30:
-            color = "#FB8C00" # Orange
+        # Calculate cumulative health as the average score
+        cumulative_health = tasks_df['health_score'].mean()
+        
+        # Determine color based on the cumulative health score
+        if cumulative_health <= 0.25:
+            color = "#FF4500"  # Vibrant Red/Orange for poor health
+        elif cumulative_health <= 0.6:
+            color = "#FFD700"  # Vibrant Yellow for warning
         else:
-            color = "#43A047" # Green
-            
-        # Determine percentage
-        interval = task_data.get('service_interval_days')
-        if interval and interval > 0:
-            percentage = max(0, min(100, (days_remaining / interval) * 100))
-        else: # Fallback for usage-only tasks
-            percentage = max(0, min(100, (days_remaining / 60) * 100))
-
-        style = f"background: conic-gradient({color} {percentage}%, {default_color} 0);"
-        tooltip = f"{task_data['action_required']} ({int(days_remaining)} days)"
-        return style, tooltip
-
-    def display_health_widgets(entity_type, predictions_df):
-        st.subheader(f"{entity_type.capitalize()}s")
-        entity_preds_df = predictions_df[predictions_df['entity_type'] == entity_type].copy()
+            color = "#00FF7F"  # Vibrant Green (Spring Green) for healthy
         
-        if entity_preds_df.empty:
+        percentage = cumulative_health * 100
+        style = f"background: conic-gradient({color} {percentage}%, #333333 0);"
+        
+        return style, cumulative_health, color
+
+    def display_health_widgets(entity_type, predictions_df, config_df):
+        st.subheader(f"{entity_type.capitalize()}s")
+        entity_preds = predictions_df[predictions_df['entity_type'] == entity_type].copy()
+        
+        if entity_preds.empty:
             st.warning(f"No prediction data available for {entity_type}s.")
             return
 
-        # Ensure 'service_interval_days' is numeric
-        entity_preds_df['service_interval_days'] = pd.to_numeric(entity_preds_df['service_interval_days'], errors='coerce')
+        # --- FIX: Ensure 'action_required' column exists ---
+        # If the data is loaded from a stale cache, this column might be missing.
+        # This check merges it from the main config if necessary.
+        if 'action_required' not in entity_preds.columns:
+            logger.warning("'action_required' column not found in predictions, merging from config.")
+            config_with_id = config_df.reset_index()[['task_id', 'action_required']]
+            entity_preds = entity_preds.merge(config_with_id, on='task_id', how='left')
 
-        entities = sorted(entity_preds_df['entity_display_name'].unique())
-        num_columns = 4
+        # Clean up data for calculation
+        entity_preds['service_interval_days'] = pd.to_numeric(entity_preds['service_interval_days'], errors='coerce').fillna(1)
+        entity_preds.dropna(subset=['days_remaining', 'action_required'], inplace=True)
+        
+        # Define keywords for categorization
+        inspection_keywords = ['check', 'inspect', 'measure', 'test', 'recalibrate']
+        
+        def categorize_task(action):
+            action_lower = str(action).lower()
+            return 'Inspection' if any(kw in action_lower for kw in inspection_keywords) else 'Service'
+
+        entity_preds['task_category'] = entity_preds['action_required'].apply(categorize_task)
+
+        entities = sorted(entity_preds['entity_display_name'].unique())
+        num_columns = 4 # Adjust number of columns for layout if needed
         cols = st.columns(num_columns)
 
         for i, entity_name in enumerate(entities):
             with cols[i % num_columns]:
-                entity_df = entity_preds_df[entity_preds_df['entity_display_name'] == entity_name]
+                entity_df = entity_preds[entity_preds['entity_display_name'] == entity_name]
                 
-                # --- Separate tasks into short-term and long-term ---
-                short_term_tasks = entity_df[entity_df['service_interval_days'] <= 90]
-                long_term_tasks = entity_df[entity_df['service_interval_days'] > 90]
-
-                # --- Find most urgent task in each category ---
-                urgent_short_term = short_term_tasks.loc[short_term_tasks['days_remaining'].idxmin()] if not short_term_tasks.empty else None
-                urgent_long_term = long_term_tasks.loc[long_term_tasks['days_remaining'].idxmin()] if not long_term_tasks.empty else None
-
-                # --- Get styles and tooltips ---
-                long_term_style, long_term_tooltip = get_ring_style(urgent_long_term, default_color='#fce4ec') # Light Pink
-                short_term_style, short_term_tooltip = get_ring_style(urgent_short_term, default_color='#e8f5e9') # Light Green
+                service_tasks = entity_df[entity_df['task_category'] == 'Service']
+                inspection_tasks = entity_df[entity_df['task_category'] == 'Inspection']
                 
-                # Combine tooltips
-                full_tooltip = f"Long-Term: {long_term_tooltip} | Short-Term: {short_term_tooltip}"
+                service_style, service_health, _ = get_cumulative_health_style(service_tasks)
+                inspection_style, inspection_health, _ = get_cumulative_health_style(inspection_tasks)
+                
+                if service_health > 0 and inspection_health > 0:
+                    overall_health = (service_health + inspection_health) / 2 * 10
+                elif service_health > 0:
+                    overall_health = service_health * 10
+                else:
+                    overall_health = inspection_health * 10
+                
+                tooltip = (f"Overall Health: {overall_health:.1f}/10 | "
+                           f"Service: {service_health*100:.0f}% | "
+                           f"Inspection: {inspection_health*100:.0f}%")
 
-                # --- Determine overall status for text display ---
-                overall_status = "Healthy"
-                overall_color = "#43A047" # Green
-                if (urgent_long_term is not None and urgent_long_term['days_remaining'] <= 0) or \
-                   (urgent_short_term is not None and urgent_short_term['days_remaining'] <= 0):
-                    overall_status = "Overdue"
-                    overall_color = "#E53935" # Red
-                elif (urgent_long_term is not None and urgent_long_term['days_remaining'] <= 30) or \
-                     (urgent_short_term is not None and urgent_short_term['days_remaining'] <= 30):
-                    overall_status = "Warning"
-                    overall_color = "#FB8C00" # Orange
+                min_health = min(service_health, inspection_health) if (service_health > 0 and inspection_health > 0) else (service_health or inspection_health)
+                if min_health <= 0.25:
+                    status_text, status_color = "Action Required", "#FF4500"
+                elif min_health <= 0.6:
+                    status_text, status_color = "Warning", "#FFD700"
+                else:
+                    status_text, status_color = "Healthy", "#00FF7F"
 
-                # Display the widget
                 st.markdown(f"""
-                <div class="health-widget-container">
-                    <h4>{entity_name}</h4>
-                    <div class="rings-container" title="{full_tooltip}">
-                        <div class="health-ring outer-ring" style="{long_term_style}">
-                            <div class="health-ring inner-ring" style="{short_term_style}">
-                            </div>
+                <div class="health-widget-container" title="{tooltip}">
+                    <h4 style="color: #FFFFFF;">{entity_name}</h4>
+                    <div class="rings-container">
+                        <div class="health-ring outer-ring" style="{service_style}">
+                            <div class="health-ring inner-ring" style="{inspection_style}"></div>
                         </div>
                     </div>
-                    <p style="color:{overall_color}; margin-top: 10px;"><b>{overall_status}</b></p>
+                    <p class="health-status" style="color:{status_color};">{status_text}</p>
                 </div>
                 """, unsafe_allow_html=True)
     
     # --- Display Widgets ---
-    display_health_widgets('crane', all_preds_df)
+    # Pass the service_config DataFrame to the function
+    display_health_widgets('crane', all_preds_df, service_config)
     st.divider()
-    display_health_widgets('spreader', all_preds_df)
+    display_health_widgets('spreader', all_preds_df, service_config)
 
 
 elif selected_tab == "📊 Detailed Analysis":
     st.sidebar.header("Analysis Selections")
+    alt.themes.enable('dark') # <-- ADD THIS LINE
     selected_entity = st.sidebar.selectbox("Select Crane or Spreader:", ENTITY_LIST, key="entity_select_tab1")
 
     # Initialize the variable to a safe default value right away
