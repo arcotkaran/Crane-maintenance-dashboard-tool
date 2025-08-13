@@ -1142,19 +1142,22 @@ elif selected_tab == "⚙️ Admin":
                 del st.session_state[key]
     
     if not st.session_state.admin_logged_in:
-        st.write("Enter password to manage service logs and maintenance windows.")
-        with st.form("admin_login_form"):
-            password = st.text_input("Admin Password", type="password")
-            submitted = st.form_submit_button("Login")
-            if submitted:
-                admin_user = auth.verify_admin_password(password)
-                if admin_user:
-                    st.session_state.admin_logged_in = True
-                    st.session_state.admin_user = admin_user
-                    st.session_state.force_data_reload = True
-                    st.rerun()
-                else:
-                    st.error("Incorrect password.")
+        if not st.session_state.admin_logged_in:
+            st.write("Enter admin credentials to manage the application.")
+            with st.form("admin_login_form"):
+                username = st.text_input("Admin Username") # ADDED
+                password = st.text_input("Admin Password", type="password")
+                submitted = st.form_submit_button("Login")
+                if submitted:
+                    # UPDATED function call
+                    admin_user = auth.verify_user(username, password)
+                    if admin_user:
+                        st.session_state.admin_logged_in = True
+                        st.session_state.admin_user = admin_user
+                        st.session_state.force_data_reload = True
+                        st.rerun()
+                    else:
+                        st.error("Incorrect username or password.")
     else:
         st.success(f"Logged in as: **{st.session_state.admin_user}**")
         def logout_callback():

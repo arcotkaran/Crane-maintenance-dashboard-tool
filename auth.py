@@ -1,62 +1,46 @@
-# SCRIPT NAME: auth.py
-# DESCRIPTION: Handles user authentication by reading from an external users.json file.
-# UPDATE: Simplified to only verify an admin password, without checking username.
-# REFACTOR: Centralized path and logger configuration.
+# FILE: auth.py
 
-import json
+# SCRIPT NAME: auth.py
+# DESCRIPTION: Handles user authentication by reading from the database.
+
+import sqlite3
+import bcrypt
 from config import Paths, logger
 
-USERS_DATA = {
-  "users": [
-    {
-      "username": "user",
-      "password": "password",
-      "role": "viewer"
-    },
-    {
-      "username": "manager",
-      "password": "manager123",
-      "role": "admin"
-    },
-    {
-      "username": "admin",
-      "password": "admin123",
-      "role": "admin"
-    }
-  ]
-}
-
-def load_users():
+def verify_user(username: str, password: str) -> str | None:
     """
-    Returns the hardcoded list of user objects.
-    """
-    logger.debug("Loading users from embedded data.")
-    return USERS_DATA.get("users", [])
-
-def verify_admin_password(password: str) -> str | None:
-    """
-    Checks if the provided password matches any user with the 'admin' role.
-
-    It iterates through all users loaded from the JSON file and checks two conditions:
-    1. The user's role is "admin".
-    2. The user's password matches the one provided.
+    Verifies a user's credentials against the database.
+    It fetches the hashed password for the given username and uses bcrypt to
+    securely compare it with the provided password.
 
     Args:
+        username (str): The username to check.
         password (str): The password to check.
 
     Returns:
-        str: The username of the matching admin if found.
-        None: If no matching admin user is found.
+        str: The username if the credentials are valid and the user is an 'admin'.
+        None: If the credentials are invalid or the user is not an admin.
     """
-    logger.info("Verifying admin password.")
-    all_users = load_users()
-    for user in all_users:
-        # Check if the user has the 'admin' role and the password matches.
-        # .get() is used for safe access in case a key is missing from a user entry.
-        if user.get("role") == "admin" and user.get("password") == password:
-            username = user.get("username")
-            logger.info(f"Password verification successful for admin user: '{username}'")
-            return username # Return the admin's username on success
-    
-    logger.warning("Admin password verification failed. No matching user found.")
-    return None # Return None if the loop finishes without finding a match
+    logger.info(f"Attempting to verify user: '{username}'")
+    try:
+        with sqlite3.connect(Paths.DATABASE_PATH) as conn:
+            cursor = conn.cursor()
+            # Find the user by their username
+            cursor.execute("SELECT hashed_password, role FROM users WHERE username = ?", (username,))
+            result = cursor.fetchone()
+
+            if result:
+                stored_hash, role = result
+                # Securely check if the provided password matches the stored hash
+                if bcrypt.checkpw(password.encode('utf-8'), stored_hash.encode('utf-8')):
+                    if role == 'admin':
+                        logger.info(f"Verification successful for admin user: '{username}'")
+                        return username  # Login successful
+                    else:
+                        logger.warning(f"User '{username}' attempted to log in but is not an admin.")
+                        return None
+    except sqlite3.Error as e:
+        logger.error(f"Database error during user verification for '{username}': {e}")
+
+    logger.warning(f"Verification failed for user: '{username}'")
+    return None

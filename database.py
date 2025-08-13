@@ -135,6 +135,13 @@ def init_db():
                     entity_display_name TEXT,
                     PRIMARY KEY (entity_id, task_id)
                 )''')
+            cursor.execute(f'''
+                CREATE TABLE IF NOT EXISTS users (
+                    id INTEGER PRIMARY KEY,
+                    username TEXT NOT NULL UNIQUE,
+                    hashed_password TEXT NOT NULL,
+                    role TEXT NOT NULL
+                )''')
             conn.commit()
             logger.info("Database tables checked/created successfully.")
     except sqlite3.Error as e:
