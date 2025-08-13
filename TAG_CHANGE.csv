@@ -1,0 +1,52 @@
+TAG,FV,Order
+di_OT_Gantry,Gantry Operating Time,1
+di_OT_Hoist,Hoist Operating Time,2
+di_OT_Trolley,Trolley Operating Time,3
+di_OT_Hoist_Trolley,Hoist and Trolley Overlap,4
+di_OT_HB_Micro_Move,Headblock Micromovement,5
+di_OT_Cable_Reel,Cable Reel Moving,6
+di_Idle_Time,Crane Idle Time,7
+di_Moving_Time,Crane Moving Time,8
+di_Operation_Time,Crane Operating Time,9
+di_Down_Time,Crane Down Time,10
+di_OT_Elec_Room_AC_1,E-House AC Unit 1 On,11
+di_OT_Elec_Room_AC_2,E-House AC Unit 2 On,12
+di_OT_Working_Lights,Working Lights On,13
+di_OT_Elec_Room_AC_3,E-House AC Unit 3 On,14
+di_Pcs_All_Container,All Containers,15
+di_Pcs_All_Container_TEU,TEU Containers,16
+di_Pcs_20_ft,20' Containers,17
+di_Pcs_40_ft,40' Containers,18
+di_Pcs_Crane_On,Crane Switch On,19
+di_Pcs_E_Stop,Emergency Stop,20
+di_Pcs_Fast_Stop_Gantry,Gantry Fast Stop,21
+di_Pcs_Fast_Stop_Hoist,Hoist Fast Stop,22
+di_Pcs_Fast_Stop_Trolley,Trolley Fast Stop,23
+di_Pcs_Twl_Move_All,All Twistlock Move,24
+di_Pcs_Twl_Move_20_ft,20' Twistlock Move,25
+di_Pcs_Twl_Move_40_ft,40' Twistlock Move,26
+di_Pcs_Spreader_Size_Change,Spreader Size Change,27
+di_Pcs_Flipper_Move,Flipper Move,28
+di_Pcs_Pick_Move,Pick Move,29
+di_Pcs_Ground_Move,Ground Move,30
+di_Pcs_Pick_And_Ground_Move,Pick and Ground Move,31
+di_Pcs_Lifts_Under_10_t,0-10 (t) Lifts,32
+di_Pcs_Lifts_10_20_t,10-20 (t) Lifts,33
+di_Pcs_Lifts_20_30_t,20-30 (t) Lifts,34
+di_Pcs_Lifts_30_40_t,30-40 (t) Lifts,35
+di_Pcs_Lifts_40_50_t,40-50 (t) Lifts,36
+di_Pcs_Lifts_Over_50_t,Over 50 (t) Lifts,37
+di_Pcs_Brake_Open_Gantry,Gantry Brake Release,38
+di_Pcs_Brake_Open_Hoist,Hoist Brake Release,39
+di_Pcs_Brake_Open_Trolley,Trolley Brake Release,40
+di_SW_Version,Crane Software Version,41
+di_Spreader_ID_Number,Spreader ID Number,42
+di_Energy_Consumption,Consumption of Energy,43
+di_TD_Gantry,Gantry Travel Distance,44
+di_TD_Hoist,Hoist Travel Distance,45
+di_TD_Trolley,Trolley Travel Distance,46
+di_Sum_Weight_All_Cont,Containers Total Weight,47
+di_Sum_Weight_20_ft,20' Containers Weight,48
+di_Sum_Weight_40_ft,40' Containers Weight,49
+di_Sum_Weight_Average_Container,Average Container Weight,50
+di_Sum_Weight_Average,Average Weight,51

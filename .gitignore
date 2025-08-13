@@ -1,0 +1,10 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Log and database files
+debug.txt
+crane_data.db
+crane_data.db.sql
+Run_dashboard.bat
+One time run/

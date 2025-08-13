@@ -1,0 +1,330 @@
+category,component,task_id,action_required,maintenance_type,entity_type,service_interval_days,tag_name,service_limit,unit,duration_hours
+Gantry,Gantry motors,gantry_gantry_motors_check_and_clean_the_cooling_fins,"Check and clean the cooling fins.",preventive,crane,365,,,4
+Gantry,Gantry motors,gantry_gantry_motors_check_the_mounting_bolts_for_tightness,"Check the mounting bolts for tightness.",preventive,crane,365,,,4
+Gantry,Gantry motors,gantry_gantry_motors_check_visually_the_cabling_condition_and_enclosures,"Check visually the cabling condition and enclosures.",preventive,crane,365,,,2
+Gantry,Gantry motors,gantry_gantry_motors_check_visually_the_connection_box_gasket,"Check visually the connection box gasket.",preventive,crane,365,,,2
+Gantry,Gantry motors,gantry_gantry_motors_replace_the_bearings,"Replace the bearings.",preventive,crane,3650,,,8
+Gantry,Gantry motors,gantry_gantry_motors_check_for_running_smoothness_and_abnormal_noise_or_behaviour,"Check for running smoothness, and abnormal noise or behaviour.",preventive,crane,365,Gantry Operating Time,500,hours,2
+Gantry,Gantry motors,gantry_gantry_motors_measure_insulation_resistance,"If there is a reason to suspect dampness in system, measure insulation resistance of the windings and check the condition of the insulators.",preventive,crane,365,,,4
+Gantry,Gantry motors,gantry_gantry_motors_check_the_anti-condensation_heaters_for_correct_function,"Check the anti-condensation heaters for correct function.",preventive,crane,365,,,2
+Gantry,Gantry motors,gantry_gantry_motors_inspect_the_motor_cable_connections_and_tighten_if_necessary,"Inspect the motor cable connections and tighten if necessary.",preventive,crane,365,Gantry Operating Time,500,hours,4
+Gantry,Gantry motors,gantry_gantry_motors_inspect_the_shore_supply_socket_outlet_inlet,"Inspect the shore supply socket outlet/inlet.",preventive,crane,365,,,2
+Gantry,Gantry motors,gantry_gantry_motors_check_the_location_of_the_shaft_seals,"Check the location of the shaft seals.",preventive,crane,365,,,2
+Gantry,Gantry gearboxes,gantry_gantry_gearboxes_check_for_oil_leaks,"Check for oil leaks.",preventive,crane,90,,,2
+Gantry,Gantry gearboxes,gantry_gantry_gearboxes_check_the_oil_level,"Check the oil level.",preventive,crane,90,,,2
+Gantry,Gantry gearboxes,gantry_gantry_gearboxes_change_the_oil,"Change the oil.",preventive,crane,365,Gantry Operating Time,500,hours,8
+Gantry,Gantry gearboxes,gantry_gantry_gearboxes_renew_the_lubricating_grease_in_all_lubrication_points,"Renew the lubricating grease in all lubrication points.",preventive,crane,540,Gantry Operating Time,3000,hours,4
+Gantry,Gantry gearboxes,gantry_gantry_gearboxes_check_the_torque_lever_screw_and_bolt_connections,"Check the torque lever screw and bolt connections.",preventive,crane,90,,,4
+Gantry,Gantry gearboxes,gantry_gantry_gearboxes_check_the_breather_visually_and_clean_if_necessary,"Check the breather visually and clean if necessary.",preventive,crane,90,,,2
+Gantry,Gantry gearboxes,gantry_gantry_gearboxes_check_the_flexible_jaw_coupling_visually,"Check the flexible jaw coupling visually.",preventive,crane,90,,,2
+Gantry,Gantry gearboxes,gantry_gantry_gearboxes_check_the_oil_visually_for_signs_of_water,"Check the oil visually through sight glass for signs of water, for example foam.",preventive,crane,90,,,2
+Gantry,Gantry gearboxes,gantry_gantry_gearboxes_check_the_gear_unit_for_abnormal_noise,"Check the gear unit for abnormal noise.",preventive,crane,365,,,2
+Gantry,Gantry positioning,gantry_gantry_positioning_check_mounting_and_condition_of_absolute_encoders,"Check the mounting and the condition of the absolute encoders on the gantry non-driven wheels.",preventive,crane,180,,,4
+Gantry,Gantry brakes,gantry_gantry_brakes_check_brake_shoes_linings_and_disc,"Check the brake shoes, brake linings and the brake disc.",preventive,crane,,Gantry Operating Time,1000,hours,4
+Gantry,Gantry brakes,gantry_gantry_brakes_check_the_reserve_stroke,"Check the reserve stroke (brake in closed position).",preventive,crane,,Gantry Operating Time,1000,hours,2
+Gantry,Gantry brakes,gantry_gantry_brakes_check_lever_adjustment_bolts,"Check the lever adjustment bolts by pulling the lever (brake in released position). The brake must not be instable.",preventive,crane,,Gantry Operating Time,1000,hours,4
+Gantry,Gantry brakes,gantry_gantry_brakes_check_the_braking_torque,"Check the braking torque (brake in closed position).",preventive,crane,,Gantry Operating Time,1000,hours,4
+Gantry,Gantry brakes,gantry_gantry_brakes_check_the_screw_and_bolt_connections,"Check the screw and bolt connections.",preventive,crane,,Gantry Operating Time,1000,hours,4
+Gantry,Gantry brakes,gantry_gantry_brakes_check_the_limit_switches,"Check the limit switches.",preventive,crane,,Gantry Operating Time,1000,hours,2
+Gantry,Gantry brakes,gantry_gantry_brakes_check_the_manual_release_device,"Check the manual release device.",preventive,crane,,Gantry Operating Time,1000,hours,2
+Gantry,Gantry brakes,gantry_gantry_brakes_check_the_power_supply_cable_connections,"Check the power supply cable connections.",preventive,crane,,Gantry Operating Time,1000,hours,4
+Gantry,Gantry brakes,gantry_gantry_brakes_check_the_air_gap,"Check the air gap.",preventive,crane,,Gantry Operating Time,1000,hours,2
+Gantry,Gantry wheels,gantry_gantry_wheels_check_for_cracks,"Check the wheels for cracks. If any cracks are found during visual check, verify using a dye penetrant inspection.",preventive,crane,,Gantry Operating Time,1000,hours,4
+Gantry,Gantry wheels,gantry_gantry_wheels_check_for_wear,"Check the wheels for wear.",preventive,crane,,Gantry Operating Time,1000,hours,2
+Gantry,Gantry wheels,gantry_gantry_wheels_lubricate_the_bearings,"Lubricate the bearings.",preventive,crane,,Gantry Operating Time,1000,hours,4
+Gantry,Gantry wheels,gantry_gantry_wheels_check_proper_installation_of_labyrinth-type_seal,"Check the proper installation of the labyrinth-type seal. The flange must not rotate around the shaft.",preventive,crane,,Gantry Operating Time,1000,hours,4
+Gantry,Gantry wheels,gantry_gantry_wheels_gantry_wheel_alignment,"Gantry wheel alignment.",preventive,crane,,Gantry Operating Time,5000,hours,8
+Hoist,Hoist motor,hoist_hoist_motor_check_and_clean_the_ventilation_system,"Check and clean the ventilation system.",preventive,crane,365,,,4
+Hoist,Hoist motor,hoist_hoist_motor_check_the_mounting_bolts_for_tightness,"Check the mounting bolts for tightness.",preventive,crane,365,,,4
+Hoist,Hoist motor,hoist_hoist_motor_check_visually_the_cabling_condition_and_enclosures,"Check visually the cabling condition and enclosures.",preventive,crane,365,,,2
+Hoist,Hoist motor,hoist_hoist_motor_check_the_bearing_condition,"Check the bearing condition.",preventive,crane,365,,,2
+Hoist,Hoist motor,hoist_hoist_motor_replace_the_bearings,"Replace the bearings.",preventive,crane,3650,,,8
+Hoist,Hoist motor,hoist_hoist_motor_check_the_anti-condensation_heaters_for_correct_function,"Check the anti-condensation heaters for correct function.",preventive,crane,365,,,2
+Hoist,Hoist motor,hoist_hoist_motor_check_for_running_smoothness_and_abnormal_noise_or_behaviour,"Check for running smoothness, and abnormal noise or behaviour.",preventive,crane,365,,,2
+Hoist,Hoist motor,hoist_hoist_motor_measure_insulation_resistance,"If there is a reason to suspect dampness in system, measure the insulation resistance of the motor windings and the condition of the insulator(s).",preventive,crane,730,,,4
+Hoist,Hoist motor,hoist_hoist_motor_measure_that_no_bearing_insulation_is_short-circuited,"Measure that no bearing insulation is short-circuited.",preventive,crane,1825,,,4
+Hoist,Hoist motor,hoist_hoist_motor_check_the_seals_of_the_junction_box,"Check the seals of the junction box.",preventive,crane,365,,,2
+Hoist,Hoist motor,hoist_hoist_motor_check_that_there_is_no_moisture_in_the_junction_box,"Check that there is no moisture in the junction box.",preventive,crane,365,,,2
+Hoist,Hoist motor,hoist_hoist_motor_check_the_cable_connections,"Check the cable connections.",preventive,crane,365,,,4
+Hoist,Hoist motor,hoist_hoist_motor_check_the_mounting_of_the_hoist_motor_incremental_encoder,"Check the mounting of the hoist motor incremental encoder.",preventive,crane,365,,,4
+Hoist,Cardan shaft,hoist_cardan_shaft_grease_the_cardan_shaft_through_greasing_nipple,"Grease the cardan shaft through greasing nipple",preventive,crane,,Hoist Operating Time,2000,hours,4
+Hoist,Hoist gearbox,hoist_hoist_gearbox_check_for_oil_leaks,"Check for oil leaks.",preventive,crane,90,,,2
+Hoist,Hoist gearbox,hoist_hoist_gearbox_check_the_oil_level,"Check the oil level.",preventive,crane,90,,,2
+Hoist,Hoist gearbox,hoist_hoist_gearbox_change_the_oil,"Change the oil.",preventive,crane,,Hoist Operating Time,3000,hours,8
+Hoist,Hoist gearbox,hoist_hoist_gearbox_renew_the_seal_lubricating_grease,"Renew the seal lubricating grease.",preventive,crane,,,,4
+Hoist,Hoist gearbox,hoist_hoist_gearbox_check_the_breather_visually_and_clean_if_necessary,"Check the breather visually and clean if necessary.",preventive,crane,90,,,2
+Hoist,Hoist gearbox,hoist_hoist_gearbox_check_the_gear_unit_for_abnormal_noise,"Check the gear unit for abnormal noise",preventive,crane,365,,,2
+Hoist,Hoist gearbox,hoist_hoist_gearbox_check_the_oil_visually_through_sight_glass_for_signs_of_water,"Check the oil visually through sight glass for signs of water, for example foam.",preventive,crane,180,,,2
+Hoist,Hoist gearbox,hoist_hoist_gearbox_check_that_the_retaining_screws_are_tightly_secured,"Check that the retaining screws are tightly secured",preventive,crane,365,,,4
+Hoist,Hoist positioning,hoist_hoist_positioning_check_the_mounting_of_the_absolute_encoders,"Check the mounting of the absolute encoders at the end of the hoist drum",preventive,crane,365,,,4
+Hoist,Emergency hoist gear,hoist_emergency_hoist_gear_check_the_gear_oil_level,"Check the gear oil level.",preventive,crane,365,,,2
+Hoist,Emergency hoist gear,hoist_emergency_hoist_gear_change_the_gear_oil,"Change the gear oil.",preventive,crane,1095,,,8
+Hoist,Emergency hoist gear,hoist_emergency_hoist_gear_replace_anti-friction_bearing_grease,"Replace anti-friction bearing grease.",preventive,crane,1095,,,4
+Hoist,Emergency hoist gear,hoist_emergency_hoist_gear_inspection_and_functional_testing,"Inspection and functional testing.",preventive,crane,365,,,4
+Hoist,Emergency hoist gear,hoist_emergency_hoist_gear_check_the_chain_detection_sensor_for_correct_function,"Check the chain detection sensor for correct function.",preventive,crane,365,,,2
+Hoist,Hoist drum,hoist_hoist_drum_lubricate_the_bearing,"Lubricate the bearing.",preventive,crane,,Hoist Operating Time,1000,hours,4
+Hoist,Hoist drum,hoist_hoist_drum_check_that_the_rope_clamp_locking_plates_are_correctly_installed,"Check that the rope clamp locking plates are correctly installed.",preventive,crane,,Hoist Operating Time,1000,hours,4
+Hoist,Rope sheaves,hoist_rope_sheaves_lubricate_the_bearing,"Lubricate the bearing.",preventive,crane,,Hoist Operating Time,1000,hours,4
+Hoist,Rope sheaves,hoist_rope_sheaves_check_the_rope_sheaves_for_wear,"Check the rope sheaves for wear.",preventive,crane,,Hoist Operating Time,1000,hours,2
+Hoist,Hoist brake,hoist_hoist_brake_check_the_brake_shoes_linings_and_brake_disc,"Check the brake shoes, linings and brake disc.",preventive,crane,,Hoist Operating Time,1000,hours,4
+Hoist,Hoist brake,hoist_hoist_brake_check_the_reserve_stroke,"Check the reserve stroke (brake in closed position).",preventive,crane,,Hoist Operating Time,1000,hours,2
+Hoist,Hoist brake,hoist_hoist_brake_check_the_lever_adjustment_bolts,"Check the lever adjustment bolts by pulling the lever (brake in released position), the brake must not be instable.",preventive,crane,180,Hoist Operating Time,1000,hours,4
+Hoist,Hoist brake,hoist_hoist_brake_check_the_braking_torque,"Check the braking torque (brake in closed position).",preventive,crane,,Hoist Operating Time,1000,hours,4
+Hoist,Hoist brake,hoist_hoist_brake_check_the_screw_and_bolt_connections,"Check the screw and bolt connections.",preventive,crane,,Hoist Operating Time,1000,hours,4
+Hoist,Hoist brake,hoist_hoist_brake_check_the_limit_switches,"Check the limit switches.",preventive,crane,,Hoist Operating Time,1000,hours,2
+Hoist,Hoist brake,hoist_hoist_brake_check_the_manual_release_device,"Check the manual release device.",preventive,crane,,Hoist Operating Time,1000,hours,2
+Hoist,Hoist brake,hoist_hoist_brake_check_the_hydraulic_oil_level_in_the_thruster,"Check the hydraulic oil level in the thruster.",preventive,crane,,Hoist Operating Time,1000,hours,2
+Hoist,Hoist brake,hoist_hoist_brake_replace_the_hydraulic_oil_in_the_thruster,"Replace the hydraulic oil in the thruster.",preventive,crane,1825,,,8
+Hoist,Emergency hoist brake,hoist_emergency_hoist_brake_check_the_brake_shoes_linings_and_brake_disc,"Check the brake shoes, linings and brake disc.",preventive,crane,,Hoist Operating Time,1000,hours,4
+Hoist,Emergency hoist brake,hoist_emergency_hoist_brake_check_the_reserve_stroke,"Check the reserve stroke (brake in closed position).",preventive,crane,,Hoist Operating Time,1000,hours,2
+Hoist,Emergency hoist brake,hoist_emergency_hoist_brake_check_the_braking_torque,"Check the braking torque (brake in closed position).",preventive,crane,,Hoist Operating Time,1000,hours,4
+Hoist,Emergency hoist brake,hoist_emergency_hoist_brake_check_the_screw_and_bolt_connections,"Check the screw and bolt connections.",preventive,crane,,Hoist Operating Time,1000,hours,4
+Hoist,Emergency hoist brake,hoist_emergency_hoist_brake_check_the_limit_switches,"Check the limit switches.",preventive,crane,,Hoist Operating Time,1000,hours,2
+Hoist,Emergency hoist brake,hoist_emergency_hoist_brake_check_the_manual_release_device,"Check the manual release device.",preventive,crane,,Hoist Operating Time,1000,hours,2
+Hoist,Emergency hoist brake,hoist_emergency_hoist_brake_check_the_hydraulic_oil_level_in_the_thruster,"Check the hydraulic oil level in the thruster.",preventive,crane,,Hoist Operating Time,1000,hours,2
+Hoist,Emergency hoist brake,hoist_emergency_hoist_brake_replace_the_hydraulic_oil_in_the_thruster,"Replace the hydraulic oil in the thruster.",preventive,crane,,Hoist Operating Time,1000,hours,8
+Hoist,Hoist ropes,hoist_hoist_ropes_check_hoist_ropes_at_full_length,"Check the hoist ropes at full lenght for possible damage and change in shape.",preventive,crane,,Hoist Operating Time,1000,hours,4
+Hoist,Hoist ropes,hoist_hoist_ropes_lubricate_the_hoist_ropes,"Lubricate the hoist ropes.",preventive,crane,180,Hoist Operating Time,1000,hours,4
+Hoist,Hoist ropes,hoist_hoist_ropes_check_protective_plates_and_rollers,"Check the protective plastic or rubber plates and rollers guiding the hoist ropes for wear.",preventive,crane,365,,,2
+Hoist,Aerial cable,hoist_aerial_cable_lubricate_the_aerial_cable,"Lubricate the aerial cable.",preventive,crane,90,,,4
+Spreader,Spreader,spreader_spreader_lubricate_the_spreader_lubrication_points,"Lubricate the spreader lubrication points.",preventive,crane,,Crane Operating Time,1000,hours,4
+Spreader,Spreader,spreader_spreader_check_the_glide_plates_and_replace_if_excess_wear_found,"Check the glide plates and replace if excess wear found.",preventive,crane,,Crane Operating Time,2000,hours,4
+Spreader,Spreader,spreader_spreader_check_the_telescopic_chain_tension,"Check the telescopic chain tension.",preventive,crane,,Crane Operating Time,4000,hours,4
+Spreader,Spreader,spreader_spreader_check_the_telescopic_chain_elongation,"Check the telescopic chain elongation. Replace the chain and gears when maximum trimming allowance is reached.",preventive,crane,,Crane Operating Time,4000,hours,8
+Spreader,Spreader,spreader_spreader_check_the_gears,"Check the gears.",preventive,crane,,Crane Operating Time,6000,hours,4
+Spreader,Spreader,spreader_spreader_check_the_function_of_the_spreader_twistlocks_and_tighten_them,"Check the function of the spreader twistlocks and tighten them.",preventive,crane,,Crane Operating Time,1000,hours,4
+Spreader,Spreader,spreader_spreader_dismantle_inspect_and_detect_the_twistlocks_for_cracks,"Dismantle, inspect and detect the twistlocks for cracks.",preventive,crane,,Crane Operating Time,3000,hours,8
+Spreader,Spreader,spreader_spreader_replace_pins_and_spherical_washers_of_the_twistlocks,"Replace pins and spherical washers of the twistlocks.",preventive,crane,,Crane Operating Time,6000,hours,8
+Spreader,Spreader,spreader_spreader_check_the_spreader_alignment,"Check the spreader alignment.",preventive,crane,,Crane Operating Time,1000,hours,8
+Spreader,Spreader,spreader_spreader_clean_position_sensors,"Clean position sensors.",preventive,crane,,Crane Operating Time,1000,hours,2
+Spreader,Spreader,spreader_spreader_test_position_sensors,"Test position sensors.",preventive,crane,,Crane Operating Time,1000,hours,2
+Spreader,Headblock,spreader_headblock_check_the_slack_rope_sensors_for_correct_function,"Check the slack rope sensors for correct function.",preventive,crane,90,,,2
+Spreader,Headblock,spreader_headblock_dismantle_inspect_and_detect_the_twistlocks_for_cracks,"Dismantle, inspect and detect the twistlocks for cracks.",preventive,crane,,Crane Operating Time,3000,hours,8
+Spreader,Headblock,spreader_headblock_check_the_twistlock_position_sensors_for_correct_function,"Check the twistlock position sensors for correct function.",preventive,crane,,Crane Operating Time,3000,hours,2
+Spreader,Headblock,spreader_headblock_check_that_the_inductive_sensors_for_slack_aerial_cable_work,"Check that the inductive sensors for slack aerial cable work.",preventive,crane,90,,,2
+Spreader,Headblock drive unit,spreader_headblock_drive_unit_clean_the_cooling_rims_with_pressurised_air,"Clean the cooling rims with pressurised air.",preventive,crane,180,,,2
+Spreader,Headblock micromotion carriages,spreader_headblock_micromotion_carriages_check_micromotions_for_smoothness_noise_and_abnormal_behaviour,"Check the micromotions for smoothness, noise and abnormal behaviour.",preventive,crane,90,,,2
+Spreader,Headblock micromotion carriages,spreader_headblock_micromotion_carriages_check_the_micromotion_actuators_for_rust_and_wear,"Check the micromotion actuators for rust and wear",preventive,crane,90,,,2
+Spreader,Headblock micromotion carriages,spreader_headblock_micromotion_carriages_lubricate_ball_screw_shafts_and_rods,"Lubricate the ball screw shafts and rods and the end fitting bearings of the micromotion actuators.",preventive,crane,180,,,4
+Spreader,Headblock micromotion carriages,spreader_headblock_micromotion_carriages_check_and_adjust_the_brake_gap,"Check and adjust the brake gap of the micromotion actuator's electric motor",preventive,crane,180,,,4
+Spreader,Headblock micromotion carriages,spreader_headblock_micromotion_carriages_lubricate_the_carriage_wheel_bearings,"Lubricate the carriage wheel bearings.",preventive,crane,90,,,4
+Spreader,Headblock micromotion carriages,spreader_headblock_micromotion_carriages_check_the_carriage_wheels_for_cracks,"Check the carriage wheels for cracks. If necessary, verify using a dye penetrant inspection. A cracked wheel must be replaced.",preventive,crane,,Crane Operating Time,4000,hours,4
+Spreader,Headblock micromotion carriages,spreader_headblock_micromotion_carriages_check_the_carriage_wheels_for_wear,"Check the carriage wheels for wear.",preventive,crane,,Crane Operating Time,6000,hours,2
+Spreader,Headblock micromotion carriages,spreader_headblock_micromotion_carriages_check_that_the_carriage_wheel_bearings_roll_freely,"Check that the carriage wheel bearings roll freely without play.",preventive,crane,,Crane Operating Time,4000,hours,2
+Spreader,Headblock electric cabinet,spreader_headblock_electric_cabinet_check_the_mounting_of_the_cabinet,"Check the mounting of the cabinet.",preventive,crane,365,,,4
+Spreader,Headblock electric cabinet,spreader_headblock_electric_cabinet_check_the_vibration_dampers,"Check the vibration dampers.",preventive,crane,365,,,2
+Spreader,Headblock electric cabinet,spreader_headblock_electric_cabinet_check_cabinet_anti-condensation_heater,"Check the cabinet anti-condensation heater for correct function.",preventive,crane,365,,,2
+Spreader,Headblock electric cabinet,spreader_headblock_electric_cabinet_check_cabinet_doors_for_waterproof_protection,"Check the cabinet doors for waterproof protection.",preventive,crane,365,,,2
+Spreader,Headblock electric cabinet,spreader_headblock_electric_cabinet_perform_residual_current_device_test,"Perform a recidual current device test for the cabinet socket and socket outlets.",preventive,crane,180,,,4
+Spreader,Headblock electric cabinet,spreader_headblock_electric_cabinet_clean_the_cabinet_fan,"Clean the cabinet fan.",preventive,crane,180,,,2
+Spreader,Headblock electric cabinet,spreader_headblock_electric_cabinet_change_the_cabinet_fan_filter,"Change the cabinet fan filter.",preventive,crane,180,,,2
+Spreader,Service crane,spreader_service_crane_lubricate_the_chain,"Lubricate the chain.",preventive,crane,365,,,4
+Spreader,Service crane,spreader_service_crane_check_operation_of_lifting_and_lowering_limit_switches,"Check the operation of lifting and lowering limit switches.",preventive,crane,365,,,2
+Spreader,Service crane,spreader_service_crane_check_cable_and_casing_parts_of_control_pendant,"Check the cable and casing parts of the control pendant.",preventive,crane,365,,,2
+Spreader,Service crane,spreader_service_crane_check_the_electrical_switchgear_and_wiring,"Check the electrical switchgear and wiring.",preventive,crane,365,,,4
+Spreader,Service crane,spreader_service_crane_check_the_slipping_clutch_for_correct_operation,"Check the slipping clutch for correct operation.",preventive,crane,365,,,4
+Spreader,Service crane,spreader_service_crane_check_the_brake_for_wear,"Check the brake for wear.",preventive,crane,3650,,,4
+Spreader,Service crane,spreader_service_crane_check_suspension_and_securing_elements,"Check the suspension, suspension bracket and securing elements (clip etc.).",preventive,crane,365,,,4
+Spreader,Service crane,spreader_service_crane_check_securing_screws_on_hook_assembly,"Check the securing screws on hook assembly.",preventive,crane,365,,,4
+Spreader,Service crane,spreader_service_crane_check_hooks_and_safety_catches,"Check the hooks and the safety catches of the hooks for cracks, deformation and wear.",preventive,crane,365,,,2
+Spreader,Service crane,spreader_service_crane_check_the_hook_bearing_for_wear,"Check the hook bearing for wear.",preventive,crane,365,,,2
+Spreader,Service crane,spreader_service_crane_check_the_chain_sprocket_and_chain_guide,"Check the chain sprocket and chain guide.",preventive,crane,365,,,2
+Spreader,Service crane,spreader_service_crane_check_the_chain_and_the_chain_collector_box_for_fastening,"Check the chain and the chain collector box for fastening",preventive,crane,365,,,2
+Spreader,Service crane,spreader_service_crane_check_the_chain_for_deformation_damage_cracks_etc,"Check the chain for deformation, damage, cracks, pitting, reduction in the thickness of the links or increase in pitch due to wear, elongation caused by deformation.",preventive,crane,365,,,4
+Spreader,Service crane,spreader_service_crane_check_the_securing_elements_for_tight_fit_and_corrosion,"Check the securing elements (clips, screws etc.) for tight fit and corrosion.",preventive,crane,365,,,4
+Spreader,Service crane,spreader_service_crane_check_and_apply_corrosion_protection,"Check and apply or supplement corrosion protection, as required.",preventive,crane,365,,,4
+Spreader,Service crane,spreader_service_crane_check_electrical_enclosure_and_gearbox_for_leakages,"Check the electrical enclosure and gearbox for leakages.",preventive,crane,365,,,2
+Spreader,Service crane,spreader_service_crane_check_the_condition_of_the_trolley_load_bar_and_buffers,"Check the condition of the trolley, load bar and buffers.",preventive,crane,365,,,2
+Spreader,Service crane,spreader_service_crane_check_all_functions_of_the_service_crane,"Check all functions of the service crane using its own controls.",preventive,crane,365,,,4
+Trolley,Trolley motors,trolley_trolley_motors_check_and_clean_the_ventilation_system,"Check and clean the ventilation system.",preventive,crane,365,,,4
+Trolley,Trolley motors,trolley_trolley_motors_check_the_mounting_bolts_for_tightness,"Check the mounting bolts for tightness.",preventive,crane,365,,,4
+Trolley,Trolley motors,trolley_trolley_motors_check_visually_the_cabling_condition_and_enclosures,"Check visually the cabling condition and enclosures.",preventive,crane,730,,,2
+Trolley,Trolley motors,trolley_trolley_motors_replace_the_bearings,"Replace the bearings.",preventive,crane,3650,,,8
+Trolley,Trolley motors,trolley_trolley_motors_check_the_seal_of_the_connection_box_gasket,"Check the seal of the connection box gasket.",preventive,crane,365,,,2
+Trolley,Trolley motors,trolley_trolley_motors_check_running_smoothness_noise_and_abnormal_behaviour,"Check running smoothness, noise and abnormal behaviour.",preventive,crane,365,Trolley Operating Time,500,hours,2
+Trolley,Trolley motors,trolley_trolley_motors_measure_insulation_resistance,"If there is a reason to suspect dampness in system, measure the insulation resistance of the motor windings and the condition of the insulator(s).",preventive,crane,365,Trolley Operating Time,2000,hours,4
+Trolley,Trolley motors,trolley_trolley_motors_check_the_anti-condensation_heaters_for_correct_function,"Check the anti-condensation heaters for correct function.",preventive,crane,365,,,2
+Trolley,Trolley motors,trolley_trolley_motors_check_for_moisture_in_connection_box,"Check that there is no moisture in the connection box and that the drainage holes are not obstructed.",preventive,crane,365,,,2
+Trolley,Trolley motors,trolley_trolley_motors_check_the_cable_connections,"Check the cable connections.",preventive,crane,365,,,4
+Trolley,Trolley brakes,trolley_trolley_brakes_check_brake_shoes_linings_and_disc,"Check the brake shoes, brake linings and the brake disc.",preventive,crane,,Gantry Operating Time,1000,hours,4
+Trolley,Trolley brakes,trolley_trolley_brakes_measure_thickness_of_friction_lining_support_group,"Measure the thickness of the friction lining support group.",preventive,crane,,Gantry Operating Time,1000,hours,2
+Trolley,Trolley brakes,trolley_trolley_brakes_check_friction_lining_support_group,"Check the friction lining support group, replace it if necessary.",preventive,crane,,Gantry Operating Time,1000,hours,4
+Trolley,Trolley brakes,trolley_trolley_brakes_check_brake_flange_and_armature_plate,"Check brake flange and armature plate, replace it if necessary.",preventive,crane,,Gantry Operating Time,1000,hours,4
+Trolley,Trolley brakes,trolley_trolley_brakes_check_the_screw_and_bolt_connections,"Check the screw and bolt connections.",preventive,crane,,Gantry Operating Time,1000,hours,4
+Trolley,Trolley brakes,trolley_trolley_brakes_drain_condensate,"Drain condensate.",preventive,crane,,Gantry Operating Time,1000,hours,2
+Trolley,Trolley brakes,trolley_trolley_brakes_check_compression_springs,"Check compression springs, replace it if necessary.",preventive,crane,,Gantry Operating Time,1000,hours,4
+Trolley,Trolley brakes,trolley_trolley_brakes_check_the_power_supply_cable_connections,"Check the power supply cable connections.",preventive,crane,,Gantry Operating Time,1000,hours,4
+Trolley,Trolley brakes,trolley_trolley_brakes_check_the_air_gap_adjust_if_necessary,"Check the air gap, adjust if necessary.",preventive,crane,,Gantry Operating Time,1000,hours,2
+Trolley,Trolley wheels,trolley_trolley_wheels_check_wheels_for_cracks,"Check wheels for cracks. If necessary, verify using a dye penetrant inspection.",preventive,crane,,Trolley Operating Time,1000,hours,4
+Trolley,Trolley wheels,trolley_trolley_wheels_check_wheels_for_wear,"Check wheels for wear.",preventive,crane,,Trolley Operating Time,5000,hours,2
+Trolley,Trolley wheels,trolley_trolley_wheels_lubricate_the_bearings,"Lubricate the bearings.",preventive,crane,,Trolley Operating Time,1000,hours,4
+Trolley,Trolley gearboxes,trolley_trolley_gearboxes_check_for_oil_leaks,"Check for oil leaks.",preventive,crane,90,,,2
+Trolley,Trolley gearboxes,trolley_trolley_gearboxes_check_the_oil_level,"Check the oil level.",preventive,crane,90,,,2
+Trolley,Trolley gearboxes,trolley_trolley_gearboxes_change_the_oil,"Change the oil.",preventive,crane,365,Trolley Operating Time,500,hours,8
+Trolley,Trolley gearboxes,trolley_trolley_gearboxes_renew_the_lubricating_grease_in_all_lubrication_points,"Renew the lubricating grease in all lubrication points.",preventive,crane,540,Trolley Operating Time,3000,hours,4
+Trolley,Trolley gearboxes,trolley_trolley_gearboxes_check_the_torque_lever_screw_and_bolt_connections,"Check the torque lever screw and bolt connections.",preventive,crane,90,,,4
+Trolley,Trolley gearboxes,trolley_trolley_gearboxes_check_the_breather_visually_and_clean_if_necessary,"Check the breather visually and clean if necessary.",preventive,crane,90,,,2
+Trolley,Trolley gearboxes,trolley_trolley_gearboxes_check_the_flexible_jaw_coupling_visually,"Check the flexible jaw coupling visually.",preventive,crane,90,,,2
+Trolley,Trolley gearboxes,trolley_trolley_gearboxes_check_the_oil_visually_for_signs_of_water,"Check the oil visually through sight glass for signs of water, for example foam.",preventive,crane,90,,,2
+Trolley,Trolley gearboxes,trolley_trolley_gearboxes_check_the_gear_unit_for_abnormal_noise,"Check the gear unit for abnormal noise.",preventive,crane,365,,,2
+Trolley,Trolley guide roller,trolley_trolley_guide_roller_check_the_rollers_for_wear,"Check the rollers for wear. Measure the roller diameter.",preventive,crane,,Trolley Operating Time,2000,hours,2
+Trolley,Trolley guide roller,trolley_trolley_guide_roller_check_the_guide_rollers_adjustment,"Check the guide rollers adjustment.",preventive,crane,,Trolley Operating Time,1000,hours,4
+Trolley,Trolley guide roller,trolley_trolley_guide_roller_check_that_the_bearings_roll_freely,"Check that the bearings roll freely without play.",preventive,crane,,Trolley Operating Time,1000,hours,2
+Trolley,Trolley guide roller,trolley_trolley_guide_roller_lubricate_the_bearings,"Lubricate the bearings.",preventive,crane,,Trolley Operating Time,1000,hours,4
+Trolley,Trolley guide roller,trolley_trolley_guide_roller_check_the_guide_rollers_for_loose_bolts,"Check the guide rollers for loose bolts.",preventive,crane,,Trolley Operating Time,1000,hours,4
+Trolley,Trolley positioning,trolley_trolley_positioning_check_mounting_and_condition_of_encoders,"Check mounting and condition of the incremental and absolute encoders.",preventive,crane,180,,,4
+Trolley,Trolley positioning,trolley_trolley_positioning_check_mounting_and_condition_of_positioning_antenna,"For automation - check BTG instructions if the item is needed: Check mounting and condition of the positioning antenna.",preventive,crane,180,,,4
+Trolley,Measurement systems,trolley_measurement_systems_check_and_clean_tpms_laser_scanners,"Check the mounting and condition and clean the optica lens surfaces of the TPMS laser scanners. Check the filter and replace if necessary.",preventive,crane,90,,,4
+Trolley,Measurement systems,trolley_measurement_systems_check_and_clean_lpms_camera,"Check the mounting and condition and clean the optical lens surface of the LPMS camera.",preventive,crane,90,,,4
+Trolley,Measurement systems,trolley_measurement_systems_check_and_clean_lpms_light_module,"Check the mounting and condition and clean the surface of LPMS light module on the headblock.",preventive,crane,90,,,4
+Trolley,Measurement systems,trolley_measurement_systems_recalibrate_the_tpms_system,"Recalibrate the TPMS system.",preventive,crane,365,,,4
+Trolley,Measurement systems,trolley_measurement_systems_recalibrate_the_lpms_system,"Recalibrate the LPMS system.",preventive,crane,365,,,4
+Trolley,Measurement systems,trolley_measurement_systems_recalibrate_the_headblock_inclinometer,"Recalibrate the headblock inclinometer.",preventive,crane,365,,,4
+Trolley,Measurement systems,trolley_measurement_systems_recalibrate_the_trolley_inclinometer,"Recalibrate the trolley inclinometer.",preventive,crane,365,,,4
+Trolley,Cameras,trolley_cameras_check_mounting_and_clean_optical_lens,"Check the mounting and condition and clean the optical lens surface of the cameras. Observe local conditions.",preventive,crane,90,,,2
+"Frame, body and accessories",General,frame_body_and_accessories_general_inspect_paint_condition,"Inspect visually the paint condition for cracks, rust and other damages.",preventive,crane,180,,,2
+"Frame, body and accessories",General,frame_body_and_accessories_general_check_warning_plates,"Check all warning plates for readability and damage. Replace if necessary.",preventive,crane,365,,,2
+"Frame, body and accessories",Emergency stop buttons,frame_body_and_accessories_emergency_stop_buttons_check_for_correct_function,"Check the emergency stop buttons for correct function.",preventive,crane,90,,,2
+"Frame, body and accessories",Fire extinguishers,frame_body_and_accessories_fire_extinguishers_check_functionality_and_inspection,"Check the fire extinguishers for functionality and proper inspection. Check the inspection tag on the fire extinguisher.",preventive,crane,180,,,2
+"Frame, body and accessories",Warning horns and warning lights,frame_body_and_accessories_warning_horns_and_warning_lights_check_for_correct_function,"Check the warning horns and warning lights for correct function.",preventive,crane,180,,,2
+"Frame, body and accessories",Gantry obstacle detection,frame_body_and_accessories_gantry_obstacle_detection_clean_the_scanner_cover,"Clean the scanner cover.",preventive,crane,30,,,2
+"Frame, body and accessories",Walkways and doorways,frame_body_and_accessories_walkways_and_doorways_check_main_girder_walkways_are_clean,"Check that main girder walkways and doorways are clean and unobstructed.",preventive,crane,,Crane Operating Time,1000,hours,2
+"Frame, body and accessories",Walkways and doorways,frame_body_and_accessories_walkways_and_doorways_check_portal_walkways_are_clean,"Check that portal walkways and doorways are clean and unobstructed.",preventive,crane,,Crane Operating Time,1000,hours,2
+"Frame, body and accessories",Walkways and doorways,frame_body_and_accessories_walkways_and_doorways_check_trolley_walkways_are_clean,"Check that trolley walkways and doorways are clean and unobstructed.",preventive,crane,,Crane Operating Time,1000,hours,2
+"Frame, body and accessories",Gantry storm lock,frame_body_and_accessories_gantry_storm_lock_check_storm_locking_system_for_correct_function,"Check storm locking system for correct function.",preventive,crane,180,,,2
+"Frame, body and accessories",Gantry storm lock,frame_body_and_accessories_gantry_storm_lock_lubricate_the_threads_of_the_tie-rods_and_their_nuts,"Lubricate the threads of the tie-rods and their nuts.",preventive,crane,180,,,4
+"Frame, body and accessories",Trolley storm pins,frame_body_and_accessories_trolley_storm_pins_check_for_correct_function,"Check for correct function.",preventive,crane,180,,,2
+"Frame, body and accessories",Buffers,frame_body_and_accessories_buffers_check_visually_the_gantry_buffers_condition,"Check visually the gantry buffers condition. Check the rubber seal.",preventive,crane,180,,,2
+"Frame, body and accessories",Buffers,frame_body_and_accessories_buffers_check_visually_the_trolley_buffers_condition,"Check visually the trolley buffers condition. Check the rubber seal.",preventive,crane,180,,,2
+"Frame, body and accessories",Bogies,frame_body_and_accessories_bogies_lubricate_the_shaft_bearings,"Lubricate the shaft bearings.",preventive,crane,,Gantry Operating Time,2000,hours,4
+"Frame, body and accessories",Balances,frame_body_and_accessories_balances_lubricate_the_shaft_bearings,"Lubricate the shaft bearings.",preventive,crane,,Gantry Operating Time,2000,hours,4
+"Frame, body and accessories",E-house,frame_body_and_accessories_e-house_check_first-aid_kit,"Check that the first-aid kit is complete and up to date.",preventive,crane,365,,,2
+"Frame, body and accessories",E-house,frame_body_and_accessories_e-house_check_outer_door_for_proper_closing,"Check that the outer door of the E-house for proper closing. Replace the gasket if damaged.",preventive,crane,365,,,2
+"Frame, body and accessories",E-house air conditioners,frame_body_and_accessories_e-house_air_conditioners_clean_the_air_filters,"Clean the air filters.",preventive,crane,30,,,2
+"Frame, body and accessories",E-house air conditioners,frame_body_and_accessories_e-house_air_conditioners_clean_the_unit_casings,"Clean the unit casings.",preventive,crane,30,,,2
+"Frame, body and accessories",E-house air conditioners,frame_body_and_accessories_e-house_air_conditioners_check_and_clean_the_drain_trays,"Check and clean the drain trays.",preventive,crane,365,,,4
+"Frame, body and accessories",E-house air conditioners,frame_body_and_accessories_e-house_air_conditioners_change_the_air_filters,"Change the air filters.",preventive,crane,365,,,2
+"Frame, body and accessories",Control stands and operator panels,frame_body_and_accessories_control_stands_and_operator_panels_check_condition,"Check the condition of the control stands and operator panels.",preventive,crane,180,,,2
+"Frame, body and accessories",Lighting system,frame_body_and_accessories_lighting_system_check_and_clean_access_lights,"Check and clean the access lights, replace defective units.",preventive,crane,180,,,4
+"Frame, body and accessories",Lighting system,frame_body_and_accessories_lighting_system_check_and_clean_working_lights,"Check and clean the working lights, replace defective units.",preventive,crane,180,,,4
+"Frame, body and accessories",Lighting system,frame_body_and_accessories_lighting_system_check_and_clean_maintenance_lights_of_headblock_electric_cabinet,"Check and clean the maintenance lights of the headblock electric cabinet, replace defective units.",preventive,crane,180,,,4
+"Frame, body and accessories",Lighting system,frame_body_and_accessories_lighting_system_check_and_clean_maintenance_lights_of_trolley_electric_cabinets,"Check and clean the maintenance lights of the trolley electric cabinets, replace defective units.",preventive,crane,180,,,4
+"Frame, body and accessories",Lighting system,frame_body_and_accessories_lighting_system_check_and_clean_maintenance_lights_of_the_e-house,"Check and clean the maintenance lights of the E-house, replace defective units.",preventive,crane,180,,,4
+"Frame, body and accessories",Trolley rails,frame_body_and_accessories_trolley_rails_check_trolley_rails_for_wear_and_cracks,"Check trolley rails for wear and cracks. If any cracks are found during visual check, verify using a dye penetrant inspection. Cracked rails must be replaced. Contact Kalmar service personnel for assistance.",preventive,crane,,Trolley Operating Time,1000,hours,4
+"Frame, body and accessories",Trolley rails,frame_body_and_accessories_trolley_rails_check_the_condition_of_the_rail_clip_fastening_bolts,"Check the condition of the rail clip fastening bolts.",preventive,crane,,Trolley Operating Time,4000,hours,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_main_steel_structure_connections,"Main steel structure (connections between frames, columns, and main girders)",preventive,crane,365,,,8
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_handrails_walkways_stairs_ladders,"Structural inspection, handrails, walkways, stairs and ladders. All welds, brackets, and bolted joints",preventive,crane,365,,,8
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_fastening_of_the_grates,"Fastening of the grates",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_internal_ladders,"Internal ladders, inside main girders and fixed side columns",preventive,crane,1095,,,8
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_buffers_of_the_trolley,"Buffers of the trolley, welded and bolted joints",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_energy_chain,"Energy chain",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_flanges_of_the_columns,"Flanges of the columns",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_rail_connections,"Rail connections, plate, and the position of the rubber pad",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_girder_externally,"Girder, externally from the trolley",preventive,crane,365,,,8
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_support,"Support",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_girder_internally,"Girder, internally through the hatches",preventive,crane,1095,,,8
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_e-house_platform,"E-house platform",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_girder_and_frame_connections_fixed_side,"Girder and frame connections, flanges, welds and bolted joints",preventive,crane,365,,,8
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_full_external_and_internal_inspection_fixed_side,"Full external and internal inspection",preventive,crane,1095,,,8
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_hinge_joints_flexible_side,"Hinge joints, pins, eye plates with all welds",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_cable_reel_connections,"Cable reel connections",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_full_external_and_internal_inspection_flexible_side,"Full external and internal",preventive,crane,1095,,,8
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_power_cable_reel_and_cable_shelf,"Power cable reel and cable shelf, bolted joints",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_cross_girder_connections,"Girder connections, flanges, welds and bolted joints",preventive,crane,365,,,8
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_cross_girder_full_inspection,"Full external and internal inspection",preventive,crane,1095,,,8
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_frame_flanges_and_welds,"Flanges and welds to the columns, balance beams and storm locking mechanism",preventive,crane,365,,,8
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_frame_bolted_joints,"Bolted joints of the storm locking mechanism and electric cabinet",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_frame_full_external_inspection,"Full external inspection",preventive,crane,1095,,,8
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_balance_and_bogie_structures,"Balance and bogie structures",preventive,crane,180,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_welded_pieces_for_pivot_pins,"Welded pieces for the pivot pins",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_bores_and_pivot_pins,"Bores and pivot pins",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_bolted_joints_of_travel_equipment,"Bolted joints of travel equipment",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_bolted_joints_of_motors_and_gearboxes,"Bolted joints of motors and gearboxes",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_balance_and_bogie_alignment_bolts,"Balance and bogie alignment bolts",preventive,crane,180,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_trolley_fastening_of_rope_sheaves,"Fastening of the rope sheaves",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_trolley_bolted_joints_of_brakes,"Bolted joints of the hoist brake and emergency brake",preventive,crane,90,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_trolley_bolted_joints_of_drum,"Bolted joints of drum bearing housing and plinths, fastening clamp of hoist rope",preventive,crane,180,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_trolley_bolted_joints_of_travel_motors,"Bolted joints of the trolley travel motors, gearboxes, and brakes",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_trolley_bolted_joints_of_drum_coupling_and_service_crane,"Bolted joints of drum coupling and service crane",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_trolley_bolted_joints_of_hoist_motor,"Bolted joints of hoist motor, gearbox and brake",preventive,crane,180,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_trolley_bolted_joints_of_wheels_and_rollers,"Bolted joints of trolley wheels and rollers",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_headblock_quick_inspection,"Quick inspection: possible damage and defects",preventive,crane,90,,,2
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_headblock_springs_and_screws,"Springs and screws of cable reel basket",preventive,crane,90,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_headblock_screws_of_rope_sheave,"Screws of the rope sheave",preventive,crane,180,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_headblock_corners_of_structure,"Corners of the headblock structure",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_headblock_all_welded_parts,"All welded parts",preventive,crane,365,,,8
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_headblock_fastening_lugs,"Fastening lugs, welds and bores",preventive,crane,180,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_headblock_end_frames,"End frames around the four twistlocks",preventive,crane,180,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_headblock_micromotion_carriages,"Micromotion carriages, structure and bolted joints",preventive,crane,180,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_spreader_quick_inspection,"Quick inspection: possible damage and defects",preventive,crane,90,,,2
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_spreader_guides,"Spreader guides",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_spreader_ties_bearing_beams,"Ties, bearing beams",preventive,crane,365,,,4
+"Frame, body and accessories",Structural inspection,frame_body_and_accessories_structural_inspection_spreader_detailed_inspection,"Detailed inspection: damage and defects from all welds, bolted joints, and bottom rails",preventive,crane,365,,,8
+Common electrics,General,common_electrics_general_check_portal_earthing_cables,"Check all of the portal earthing cables for condition and proper connection.",preventive,crane,365,,,4
+Common electrics,General,common_electrics_general_check_main_girder_earthing_cables,"Check all of the main girder earthing cables for condition and proper connection.",preventive,crane,365,,,4
+Common electrics,General,common_electrics_general_check_trolley_cable_terminals,"Check the mounting and condition of the trolley cable terminals, screw terminals and busbars.",preventive,crane,365,Trolley Operating Time,500,hours,4
+Common electrics,General,common_electrics_general_check_headblock_cable_terminals,"Check the mounting and condition of the headblock cable terminals, screw terminals and busbars.",preventive,crane,365,Trolley Operating Time,500,hours,4
+Common electrics,General,common_electrics_general_check_gantry_cable_terminals,"Check the mounting and condition of the gantry cable terminals, screw terminals and busbars.",preventive,crane,365,Trolley Operating Time,500,hours,4
+Common electrics,General,common_electrics_general_check_portal_cable_terminals,"Check the mounting and condition of the portal cable terminals, screw terminals and busbars.",preventive,crane,365,Trolley Operating Time,500,hours,4
+Common electrics,General,common_electrics_general_check_shore_supply_socket,"Check visually the shore supply socket inlet/outlet.",preventive,crane,365,Trolley Operating Time,500,hours,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_safety_cover,"Check the safety cover for missing or defective parts.",preventive,crane,90,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_fasteners_of_drum_and_reel_flange,"Check the fasteners of the drum and the reel flange clamping screws for tightness.",preventive,crane,365,,,4
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_adjusted_reel_width,"Check the adjusted reel width at multiple points around the circumference with empty reel.",preventive,crane,365,,,4
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_fixing_of_first_turn_of_cable,"Check the fixing of the first turn of cable on the drum.",preventive,crane,365,,,4
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_winding_of_cable_for_lateral_slip,"Check the winding of the cable for lateral slip.",preventive,crane,90,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_power_supply_cable_for_wear_and_tear,"Check the power supply cable for wear and tear. Check carefully for big and small chips. If the outer insulation is damaged, contact the cable supplier service.",preventive,crane,365,,,4
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_rib_supports_of_slip_ring_assembly,"Check the rib supports of the slip ring assembly for damage and contamination.",preventive,crane,365,,,4
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_the_surface_of_the_slip_rings,"Check the surface of the slip rings.",preventive,crane,365,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_the_wear_of_the_slip_brushes,"Check the wear of the slip brushes.",preventive,crane,90,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_position_of_current_collector,"Check the position of the current collector on the slip rings.",preventive,crane,365,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_connection_cable_for_damage,"Check the connection cable for damage to the insulation near the slip ring housing, and check that it is correctly fastened to the slip rings or current collectors.",preventive,crane,365,,,4
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_slip_ring_housing_anti-condensation_heater,"Check the slip ring housing anti-condensation heater for correct function.",preventive,crane,365,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_vacuum_carbon_dust,"Vacuum the carbon dust from the insulators, cable terminations and floor of the collector housing. Alternatively, use a brush or a lint free cloth.",preventive,crane,365,,,4
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_seals_on_housing_door,"Check the seals on the housing door for damage and the cable entry for leaks.",preventive,crane,365,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_secure_fastening_of_optical_fibre_cable,"Check the secure fastening of the optical fibre cable within the plastic socket.",preventive,crane,365,,,4
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_insulation_of_optical_fibre_cable,"Check the insulation of the optical fibre cable for wear.",preventive,crane,365,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_anti-condensation_heater_of_rotary_optical_fiber_transmitter,"Check the anti-condensation heater of the rotary optical fiber transmitter for correct function.",preventive,crane,365,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_limit_switch_connections,"Check the limit switch of the power cable reel for wire connections and tightness of the terminal screws.",preventive,crane,365,,,4
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_limit_switch_chain_tension,"Check the limit switch chain for sufficient tension.",preventive,crane,365,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_limit_switch_chain_lubrication,"Check the limit switch chain for sufficient lubrication.",preventive,crane,365,,,4
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_limit_switch_sprockets_for_wear,"Check the limit switch sprockets for tooth wear.",preventive,crane,365,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_housing_of_cam_switch_for_leaks,"Check the housing of the cam switch with gears for leaks.",preventive,crane,365,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_shaft_sealing_rings_for_oil_leaks,"Check the shaft sealing rings on the hollow shaft and the housing of the gearbox for oil leaks.",preventive,crane,365,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_oil_level_in_gearbox,"Check the oil level in the gearbox.",preventive,crane,365,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_change_oil_in_gearbox,"Change the oil in the gearbox.",preventive,crane,,Gantry Operating Time,10000,hours,8
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_function_of_external_fan,"Check the function of external fan of the motor and check the air pathways.",preventive,crane,365,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_motor_connection,"Check the motor connection for correct fastening.",preventive,crane,365,,,4
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_connection_box_for_moisture,"Check the connection box for moisture and that the drainage holes are not obstructed.",preventive,crane,365,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_all_glands_of_motor,"Check all glands of the motor for correct tightness and sealing.",preventive,crane,365,,,4
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_motor_anti-condensation_heater,"Check the motor anti-condensation heater for correct function.",preventive,crane,180,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_brake_microswitch,"Check the brake microswitch for correct function.",preventive,crane,180,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_brake_for_wear_and_air_gap,"Check the brake for wear and the air gap between coil body and anchor plate with a feeler gauge.",preventive,crane,365,,,4
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_brake_anti-condensation_heater,"Check the brake anti-condensation heater for correct function.",preventive,crane,365,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_running_smoothness_noise_and_abnormal_behaviour,"Check the running smoothness, noise and abnormal behaviour.",preventive,crane,365,,,2
+Common electrics,Power cable reel,common_electrics_power_cable_reel_check_gear-rim_of_coupling_for_wear,"Check the gear-rim of the coupling for wear through the sight glass on coupling.",preventive,crane,365,,,2
+Common electrics,Cable guide,common_electrics_cable_guide_check_the_sensors_for_correct_function,"Check the sensors for correct function.",preventive,crane,90,,,2
+Common electrics,Cable guide,common_electrics_cable_guide_check_the_rollers_for_free_rotation,"Check the rollers for free rotation.",preventive,crane,90,,,2
+Common electrics,Energy chain,common_electrics_energy_chain_check_the_energy_chain_for_wear,"Check the energy chain for wear",preventive,crane,180,Trolley Operating Time,1200,hours,4
+Common electrics,Energy chain,common_electrics_energy_chain_check_the_energy_chain_for_obstructions,"Check the energy chain for obstructions",preventive,crane,180,Trolley Operating Time,1200,hours,2
+Common electrics,Energy chain,common_electrics_energy_chain_check_the_roller_links,"Check the roller links",preventive,crane,180,Trolley Operating Time,1200,hours,2
+Common electrics,Energy chain,common_electrics_energy_chain_check_the_energy_chain_endpoints,"Check the energy chain endpoints",preventive,crane,180,Trolley Operating Time,1200,hours,4
+Common electrics,Energy chain,common_electrics_energy_chain_check_the_strain_reliefs,"Check the strain reliefs",preventive,crane,180,Trolley Operating Time,1200,hours,4
+Common electrics,Energy chain,common_electrics_energy_chain_check_the_cables_and_hoses,"Check the cables and hoses",preventive,crane,180,Trolley Operating Time,1200,hours,4
+Common electrics,Energy chain,common_electrics_energy_chain_check_the_troughs,"Check the troughs",preventive,crane,180,Trolley Operating Time,1200,hours,4
+Common electrics,Energy chain,common_electrics_energy_chain_check_the_moving_arm,"Check the moving arm",preventive,crane,180,Trolley Operating Time,1200,hours,4
+Common electrics,E-house,common_electrics_e-house_remove_dust_deposits_from_electric_devices,"Remove dust deposits from the E-house electric devices, like drives, UPS devices, air conditioner and other devices including power electronics or fans inside.",preventive,crane,180,,,4
+Common electrics,E-house,common_electrics_e-house_remove_dust_from_behind_pc_racks,"Remove dust from behind the PC racks and covers.",preventive,crane,180,,,2
+Common electrics,E-house,common_electrics_e-house_check_ups_front_panel_for_battery_charge_level,"Check UPS front panel for battery charge level.",preventive,crane,90,,,2
+Common electrics,E-house drive modules,common_electrics_e-house_drive_modules_replace_the_cooling_fans_of_the_drive_modules,"Replace the cooling fans of the drive modules.",preventive,crane,2190,,,8
+Common electrics,E-house drive modules,common_electrics_e-house_drive_modules_replace_the_capacitors_of_the_drive_modules,"Replace the capacitors of the drive modules.",preventive,crane,3650,,,8
+Common electrics,Transformers,common_electrics_transformers_check_mounting_and_condition_of_cable_terminals,"Check the mounting and condition of the cable terminals, screw terminals and busbars.",preventive,crane,1095,Gantry Operating Time,1000,hours,4
+Common electrics,Transformers,common_electrics_transformers_check_doors_of_trafo_room,"Check the doors of the trafo room for correct closing. Replace the gasket if damaged.",preventive,crane,365,,,2
+Common electrics,Transformers,common_electrics_transformers_replace_filters_of_ventilation_fans,"Replace the filters of the ventilation fans.",preventive,crane,,Crane Operating Time,2000,hours,4
+Common electrics,Transformers,common_electrics_transformers_check_trafo_room_ventilation_fans_and_thermostat,"Check the trafo room ventilation fans and thermostat for correct function.",preventive,crane,,Crane Operating Time,4000,hours,4
+Common electrics,Transformers,common_electrics_transformers_vacuum_the_trafo_room_from_dust,"Vacuum the trafo room from dust. Clean the busbars and terminals with a brush or a lint free cloth.",preventive,crane,365,,,4
+Common electrics,Crane switch,common_electrics_crane_switch_check_the_arcing_chambers_and_contact_systems,"Check the arcing chambers and contact systems.",preventive,crane,1095,,,4
+Common electrics,Crane switch,common_electrics_crane_switch_check_the_mechanical_functionality,"Check the mechanical functionality.",preventive,crane,365,,,4
+Common electrics,Crane switch,common_electrics_crane_switch_first_level_maintenance_for_sace_emax_2,"First level maintenance for SACE Emax 2 circuit-breakers",preventive,crane,,,,8
+Common electrics,Crane switch,common_electrics_crane_switch_second_level_maintenance_for_sace_emax_2,"Second level maintenance for SACE Emax 2 circuit-breakers",preventive,crane,,,,8
+Common electrics,MV switchgear,common_electrics_mv_switchgear_check_the_arcing_chambers_and_contact_systems,"Check the arcing chambers and contact systems.",preventive,crane,1095,,,4
+Common electrics,MV switchgear,common_electrics_mv_switchgear_check_the_mechanical_functionality,"Check the mechanical functionality.",preventive,crane,365,,,4
