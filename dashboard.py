@@ -1,4 +1,5 @@
 import streamlit as st
+import bcrypt
 import pandas as pd
 import prediction_engine
 import database
@@ -1297,7 +1298,7 @@ elif selected_tab == "⚙️ Admin":
             else: st.error(msg_text)
             del st.session_state.admin_action_message
 
-        admin_mode = st.radio("Select Management Area:", ["Service Records", "Maintenance Windows"], horizontal=True, key='admin_mode_selector')
+        admin_mode = st.radio("Select Management Area:", ["Service Records", "Maintenance Windows", "User Management"], horizontal=True, key='admin_mode_selector')
         st.divider()
 
         if admin_mode == "Service Records":
@@ -1489,7 +1490,62 @@ elif selected_tab == "⚙️ Admin":
                     window_options_keys = [f"{row['id']}: {row['entity_name']} from {row['from_str']}" for _, row in display_windows_df.iterrows()]
                     st.multiselect("Select maintenance windows to delete:", options=window_options_keys, key="delete_window_multiselect")
                     st.button("Delete Selected Windows", type="primary", on_click=delete_selected_windows_callback)
-            else: st.info("No maintenance windows are currently scheduled.")
 
-        st.divider()
-        st.button("Logout", on_click=logout_callback)
+            elif admin_mode == "User Management":
+                st.subheader("Manage Users")
+
+                with st.form("add_user_form", clear_on_submit=True):
+                    st.write("**Create a New User**")
+                    new_username = st.text_input("New Username")
+                    new_password = st.text_input("New Password", type="password")
+                    new_password_confirm = st.text_input("Confirm New Password", type="password")
+                    new_role = st.selectbox("User Role", ["viewer", "admin"])
+
+                    submitted = st.form_submit_button("Create User")
+                    if submitted:
+                        if not all([new_username, new_password, new_password_confirm, new_role]):
+                            st.warning("All fields are required.")
+                        elif new_password != new_password_confirm:
+                            st.error("Passwords do not match.")
+                        else:
+                            hashed_password = bcrypt.hashpw(new_password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+                            result = database.add_user(new_username, hashed_password, new_role)
+                            if result is True:
+                                st.success(f"User '{new_username}' created successfully!")
+                                st.rerun() # Rerun to show immediate effect
+                            else:
+                                st.error(f"Failed to create user: {result}")
+
+                st.divider()
+                st.write("**Existing Users**")
+                all_users_df = database.get_all_users()
+
+                if not all_users_df.empty:
+                    # Prevent admin from deleting themselves
+                    users_to_display = all_users_df[all_users_df['username'] != st.session_state.admin_user]
+                    st.dataframe(users_to_display[['username', 'role']], use_container_width=True)
+
+                    if not users_to_display.empty:
+                        with st.expander("Delete Users"):
+                            users_to_delete = st.multiselect(
+                                "Select users to delete:",
+                                options=users_to_display['id'],
+                                format_func=lambda user_id: users_to_display[users_to_display['id'] == user_id]['username'].iloc[0]
+                            )
+
+                            if st.button("Delete Selected Users", type="primary"):
+                                if not users_to_delete:
+                                    st.warning("Please select at least one user to delete.")
+                                else:
+
+                                    deleted_count = 0
+                                    for user_id in users_to_delete:
+                                        if database.delete_user(user_id):
+                                            deleted_count += 1
+                                    st.success(f"Successfully deleted {deleted_count} user(s).")
+                                    st.rerun() # Rerun to refresh the user list
+                else:
+                    st.info("No other users found.")
+
+            st.divider()
+            st.button("Logout", on_click=logout_callback)        

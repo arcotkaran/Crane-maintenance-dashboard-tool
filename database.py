@@ -544,3 +544,46 @@ def get_all_predictions():
     except Exception as e:
         logger.error(f"Could not read predictions from cache, it may not exist yet. Error: {e}")
         return pd.DataFrame()
+def add_user(username, hashed_password, role):
+    """Adds a new user to the database."""
+    logger.info(f"Attempting to add user '{username}' to the database.")
+    try:
+        with sqlite3.connect(Paths.DATABASE_PATH) as conn:
+            cursor = conn.cursor()
+            cursor.execute(
+                "INSERT INTO users (username, hashed_password, role) VALUES (?, ?, ?)",
+                (username, hashed_password, role)
+            )
+            conn.commit()
+            logger.info(f"Successfully added user '{username}'.")
+        return True
+    except sqlite3.IntegrityError:
+        logger.warning(f"Failed to add user. Username '{username}' already exists.")
+        return "Username already exists."
+    except sqlite3.Error as e:
+        logger.error(f"DB Error on add_user: {e}")
+        return f"Database error: {e}"
+
+def get_all_users():
+    """Retrieves all users from the database."""
+    logger.debug("Fetching all users from database.")
+    try:
+        with sqlite3.connect(Paths.DATABASE_PATH) as conn:
+            return pd.read_sql_query("SELECT id, username, role FROM users", conn)
+    except Exception as e:
+        logger.error(f"DB Error on get_all_users: {e}")
+        return pd.DataFrame()
+
+def delete_user(user_id):
+    """Deletes a specific user by their ID."""
+    logger.info(f"Attempting to delete user with ID: {user_id}")
+    try:
+        with sqlite3.connect(Paths.DATABASE_PATH) as conn:
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM users WHERE id = ?", (user_id,))
+            conn.commit()
+            logger.info(f"Successfully deleted user ID: {user_id}")
+        return True
+    except sqlite3.Error as e:
+        logger.error(f"DB Error on delete_user for ID {user_id}: {e}")
+        return False
