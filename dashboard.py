@@ -141,6 +141,56 @@ div[role="radiogroup"] > label[data-baseweb="radio"]:has(input:checked) {
 .conflicted-card {
     border: 2px solid #D32F2F !important; /* Prominent red border for conflicts */
 }
+
+/* Fleet Health Widget Styles */
+.health-widget-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #E6EAF1;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    min-height: 220px; /* Ensure consistent height */
+}
+
+.rings-container {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.health-ring {
+    border-radius: 50%;
+    position: absolute;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Add a subtle shadow */
+}
+
+.outer-ring {
+    width: 130px;
+    height: 130px;
+    padding: 12px; /* Creates the thickness of the ring */
+    background-clip: content-box; /* The background will only be visible in the padding area */
+}
+
+.inner-ring {
+    width: 86px; /* Width of outer ring - 2*padding */
+    height: 86px; /* Height of outer ring - 2*padding */
+    padding: 12px;
+    background-clip: content-box;
+    background-color: #FFFFFF; /* Center should be white */
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -673,6 +723,7 @@ def format_and_style_df(df):
 
 # --- Main Application Tabs ---
 tab_options = [
+    "❤️ Fleet Health",
     "📊 Detailed Analysis", 
     "Spreader Movement",
     "🗓️ Maintenance Overview", 
@@ -704,7 +755,102 @@ selected_tab = st.radio(
 )
 
 # --- Tab Content ---
-if selected_tab == "📊 Detailed Analysis":
+if selected_tab == "❤️ Fleet Health":
+    st.header("❤️ Fleet Health at a Glance")
+
+    def get_ring_style(task_data, default_color='#E0E0E0'):
+        """Calculates the style for a single health ring."""
+        if task_data is None:
+            return f"background: {default_color};", "N/A"
+
+        days_remaining = task_data['days_remaining']
+        
+        # Determine color
+        if days_remaining <= 0:
+            color = "#E53935" # Red
+        elif days_remaining <= 30:
+            color = "#FB8C00" # Orange
+        else:
+            color = "#43A047" # Green
+            
+        # Determine percentage
+        interval = task_data.get('service_interval_days')
+        if interval and interval > 0:
+            percentage = max(0, min(100, (days_remaining / interval) * 100))
+        else: # Fallback for usage-only tasks
+            percentage = max(0, min(100, (days_remaining / 60) * 100))
+
+        style = f"background: conic-gradient({color} {percentage}%, {default_color} 0);"
+        tooltip = f"{task_data['action_required']} ({int(days_remaining)} days)"
+        return style, tooltip
+
+    def display_health_widgets(entity_type, predictions_df):
+        st.subheader(f"{entity_type.capitalize()}s")
+        entity_preds_df = predictions_df[predictions_df['entity_type'] == entity_type].copy()
+        
+        if entity_preds_df.empty:
+            st.warning(f"No prediction data available for {entity_type}s.")
+            return
+
+        # Ensure 'service_interval_days' is numeric
+        entity_preds_df['service_interval_days'] = pd.to_numeric(entity_preds_df['service_interval_days'], errors='coerce')
+
+        entities = sorted(entity_preds_df['entity_display_name'].unique())
+        num_columns = 4
+        cols = st.columns(num_columns)
+
+        for i, entity_name in enumerate(entities):
+            with cols[i % num_columns]:
+                entity_df = entity_preds_df[entity_preds_df['entity_display_name'] == entity_name]
+                
+                # --- Separate tasks into short-term and long-term ---
+                short_term_tasks = entity_df[entity_df['service_interval_days'] <= 90]
+                long_term_tasks = entity_df[entity_df['service_interval_days'] > 90]
+
+                # --- Find most urgent task in each category ---
+                urgent_short_term = short_term_tasks.loc[short_term_tasks['days_remaining'].idxmin()] if not short_term_tasks.empty else None
+                urgent_long_term = long_term_tasks.loc[long_term_tasks['days_remaining'].idxmin()] if not long_term_tasks.empty else None
+
+                # --- Get styles and tooltips ---
+                long_term_style, long_term_tooltip = get_ring_style(urgent_long_term, default_color='#fce4ec') # Light Pink
+                short_term_style, short_term_tooltip = get_ring_style(urgent_short_term, default_color='#e8f5e9') # Light Green
+                
+                # Combine tooltips
+                full_tooltip = f"Long-Term: {long_term_tooltip} | Short-Term: {short_term_tooltip}"
+
+                # --- Determine overall status for text display ---
+                overall_status = "Healthy"
+                overall_color = "#43A047" # Green
+                if (urgent_long_term is not None and urgent_long_term['days_remaining'] <= 0) or \
+                   (urgent_short_term is not None and urgent_short_term['days_remaining'] <= 0):
+                    overall_status = "Overdue"
+                    overall_color = "#E53935" # Red
+                elif (urgent_long_term is not None and urgent_long_term['days_remaining'] <= 30) or \
+                     (urgent_short_term is not None and urgent_short_term['days_remaining'] <= 30):
+                    overall_status = "Warning"
+                    overall_color = "#FB8C00" # Orange
+
+                # Display the widget
+                st.markdown(f"""
+                <div class="health-widget-container">
+                    <h4>{entity_name}</h4>
+                    <div class="rings-container" title="{full_tooltip}">
+                        <div class="health-ring outer-ring" style="{long_term_style}">
+                            <div class="health-ring inner-ring" style="{short_term_style}">
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color:{overall_color}; margin-top: 10px;"><b>{overall_status}</b></p>
+                </div>
+                """, unsafe_allow_html=True)
+    
+    # --- Display Widgets ---
+    display_health_widgets('crane', all_preds_df)
+    st.divider()
+    display_health_widgets('spreader', all_preds_df)
+
+
+elif selected_tab == "📊 Detailed Analysis":
     st.sidebar.header("Analysis Selections")
     selected_entity = st.sidebar.selectbox("Select Crane or Spreader:", ENTITY_LIST, key="entity_select_tab1")
 
