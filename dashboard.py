@@ -16,6 +16,123 @@ import numpy as np
 # --- Global Configuration ---
 st.set_page_config(page_title="Crane & Spreader Maintenance Dashboard", page_icon="🏗️", layout="wide")
 
+# --- Dynamic CSS for Light/Dark Mode ---
+# This CSS block now defines styles for both themes. Streamlit will apply the correct one.
+st.markdown("""
+<style>
+/* --- Light Mode Styles --- */
+body[data-theme="light"] [data-testid="stMetric"], 
+body[data-theme="light"] .spreader-card, 
+body[data-theme="light"] .health-widget-container {
+    background-color: #F0F2F6;
+    border: 1px solid #DDDDDD;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333333;
+}
+body[data-theme="light"] [data-testid="stMetricLabel"] { color: #555555; }
+body[data-theme="light"] div[role="radiogroup"] > label {
+    background-color: #F0F2F6;
+    border: 1px solid #DDDDDD;
+}
+body[data-theme="light"] div[role="radiogroup"] > label:hover {
+    background-color: #E0E0E0;
+    box-shadow: 0 0 10px #007BFF;
+}
+body[data-theme="light"] div[role="radiogroup"] > label[data-baseweb="radio"]:has(input:checked) {
+    background-color: #007BFF;
+    color: #FFFFFF;
+    border: 1px solid #007BFF;
+}
+body[data-theme="light"] .inner-ring { background-color: #F0F2F6; }
+
+/* --- Dark Mode Styles --- */
+body[data-theme="dark"] [data-testid="stMetric"], 
+body[data-theme="dark"] .spreader-card, 
+body[data-theme="dark"] .health-widget-container {
+    background-color: #1A1A1A;
+    border: 1px solid #333333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    color: #EAEAEA;
+}
+body[data-theme="dark"] [data-testid="stMetricLabel"] { color: #888888; }
+body[data-theme="dark"] div[role="radiogroup"] > label {
+    background-color: #1A1A1A;
+    border: 1px solid #333333;
+}
+body[data-theme="dark"] div[role="radiogroup"] > label:hover {
+    background-color: #2a2a2a;
+    box-shadow: 0 0 10px #00AFFF;
+}
+body[data-theme="dark"] div[role="radiogroup"] > label[data-baseweb="radio"]:has(input:checked) {
+    background-color: #00AFFF;
+    color: #000000;
+    font-weight: bold;
+    border: 1px solid #00AFFF;
+}
+body[data-theme="dark"] .inner-ring { background-color: #1A1A1A; }
+
+/* --- Common Component Styles --- */
+[data-testid="stMetric"], .spreader-card, .health-widget-container {
+    border-radius: 12px;
+    padding: 20px;
+}
+[data-testid="stMetricLabel"] {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+div[role="radiogroup"] > label {
+    display: inline-block;
+    padding: 10px 16px;
+    margin: 0 4px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.health-widget-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    min-height: 250px;
+}
+.rings-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.health-ring {
+    border-radius: 50%;
+    position: absolute;
+    display: grid;
+    place-items: center;
+}
+.outer-ring {
+    width: 150px;
+    height: 150px;
+    padding: 15px;
+    background-clip: content-box;
+}
+.inner-ring {
+    width: 100px;
+    height: 100px;
+    padding: 15px;
+    background-clip: content-box;
+}
+.health-status {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+</style>
+""", unsafe_allow_html=True)
+
+
 @st.cache_data
 def get_fleet_name_maps():
     """
@@ -62,108 +179,6 @@ def get_fleet_name_maps():
 INTERNAL_TO_DISPLAY_NAME, DISPLAY_TO_INTERNAL_NAME, NUMERIC_ID_TO_DISPLAY_NAME, DISPLAY_TO_NUMERIC_ID = get_fleet_name_maps()
 
 
-
-# --- Custom CSS for a clean look ---
-# --- Custom CSS for Dark Mode Theme ---
-st.markdown("""
-<style>
-/* --- Main App Styling (Dark Mode) --- */
-body {
-    color: #EAEAEA;
-    background-color: #000000;
-}
-.stApp {
-    background-color: #000000;
-}
-.main .block-container {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
-}
-h1, h2, h3, h4, h5, h6 {
-    color: #FFFFFF;
-}
-/* --- Card-like Containers (Metrics, Health Widgets) --- */
-[data-testid="stMetric"], .spreader-card, .health-widget-container {
-    background-color: #1A1A1A; /* Dark charcoal card background */
-    border: 1px solid #333333;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    color: #EAEAEA;
-}
-[data-testid="stMetricLabel"] {
-    color: #888888; /* Softer label color */
-    font-size: 1.1rem;
-    font-weight: 500;
-}
-/* --- Tabs / Radio Buttons --- */
-div[role="radiogroup"] > label {
-    display: inline-block;
-    padding: 10px 16px;
-    margin: 0 4px; /* Add some space between tabs */
-    border-radius: 8px;
-    background-color: #1A1A1A;
-    border: 1px solid #333333;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-}
-div[role="radiogroup"] > label:hover {
-    background-color: #2a2a2a;
-    box-shadow: 0 0 10px #00AFFF; /* Vibrant blue glow on hover */
-}
-div[role="radiogroup"] > label[data-baseweb="radio"]:has(input:checked) {
-    background-color: #00AFFF; /* Vibrant blue for selected tab */
-    color: #000000;
-    font-weight: bold;
-    border: 1px solid #00AFFF;
-}
-/* --- Health Widget --- */
-.health-widget-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100%;
-    min-height: 250px;
-}
-.rings-container {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 15px;
-    margin-bottom: 20px;
-}
-.health-ring {
-    border-radius: 50%;
-    position: absolute;
-    display: grid;
-    place-items: center;
-}
-.outer-ring {
-    width: 150px;
-    height: 150px;
-    padding: 15px; /* Creates the thickness of the ring */
-    background-clip: content-box;
-}
-.inner-ring {
-    width: 100px; /* Outer width - 2*padding */
-    height: 100px;
-    padding: 15px;
-    background-clip: content-box;
-    background-color: #1A1A1A; /* Center matches card background */
-}
-.health-status {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-</style>
-""", unsafe_allow_html=True)
 
 # --- Helper Functions for Spreaders ---
 @st.cache_data
@@ -842,7 +857,6 @@ if selected_tab == "❤️ Fleet Health":
 
 elif selected_tab == "📊 Detailed Analysis":
     st.sidebar.header("Analysis Selections")
-    alt.themes.enable('dark') # <-- ADD THIS LINE
     selected_entity = st.sidebar.selectbox("Select Crane or Spreader:", ENTITY_LIST, key="entity_select_tab1")
 
     # Initialize the variable to a safe default value right away
@@ -1021,7 +1035,7 @@ elif selected_tab == "📊 Detailed Analysis":
                     chart_layers.append(service_lines)
 
                 final_chart = alt.layer(*chart_layers).interactive().configure_axis(labelFontSize=12, titleFontSize=14).configure_title(fontSize=16, anchor='start').configure_legend(titleFontSize=12, labelFontSize=11, orient='top-right')
-                st.altair_chart(final_chart, use_container_width=True)
+                st.altair_chart(final_chart, use_container_width=True, theme="streamlit")
             else:
                 st.write("No historical data to display for this metric.")
         else:
@@ -1111,7 +1125,7 @@ elif selected_tab == "Spreader Movement":
                     ]
                 ).properties(height=alt.Step(40)).interactive()
                 
-                st.altair_chart(chart, use_container_width=True)
+                st.altair_chart(chart, use_container_width=True, theme="streamlit")
             else:
                 st.warning(f"No history found for {st.session_state.selected_spreader}.")
         else:
